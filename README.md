@@ -1,171 +1,111 @@
 # AI Equity Research Report Generator
 
-Bull · AI Software Engineer Assessment
-
-Upload a company's financial document (earnings release, investor presentation,
-or a CSV/TXT of financials) → an LLM extracts the key financials, metrics, and
-narrative → download a **Geojit-style PDF research report** with tables, sections,
-paragraphs, and charts.
+Upload a company's financial document (earnings release, investor presentation, or a CSV/TXT of financials) → an LLM extracts the key financials, metrics, and narrative → download a **Modern Dark Navy PDF research report** with tables, sections, paragraphs, and charts.
 
 ```
-upload (PDF / CSV / TXT)  →  ingest  →  LLM extraction (structured)  →  charts  →  HTML template  →  PDF
+upload (PDF/CSV/TXT)  →  ingest  →  LLM extraction (structured)  →  charts  →  HTML template  →  PDF
 ```
 
 ---
 
-## Tech used
+## Tech Stack
 
 | Layer | Library |
 |---|---|
-| UI | **Streamlit** |
-| Document ingest | **pypdf** (PDF text), **pandas** (CSV), plain read (TXT) |
-| AI extraction | **Any LLM** via **LiteLLM** (default `anthropic/claude-sonnet-4-6`; also OpenAI, Gemini, Mistral, Ollama, etc.) using forced tool/function calling → validated **Pydantic** schema |
-| Charts | **matplotlib** (rendered to base64 PNG) |
-| Template | **Jinja2** HTML + CSS |
-| PDF generation | **WeasyPrint** |
+| **Frontend UI** | **React (Vite)** — clean, modern, and highly responsive |
+| **Backend API** | **FastAPI** — high performance Python server |
+| **Document Ingest** | **pypdf** (PDF text), **pandas** (CSV), plain read (TXT) |
+| **AI Extraction** | **GPT-4o** via LiteLLM (configurable to Anthropic, Gemini, Mistral, Ollama, etc.) utilizing forced JSON function calling → validated by **Pydantic** |
+| **Charts** | **matplotlib** (rendered headless to base64 PNG) |
+| **PDF Generation** | **Jinja2** HTML/CSS → **WeasyPrint** (with MS Edge Headless printing fallback on Windows) |
 
 ---
 
 ## Where the template fields are defined
 
-Everything the report can contain is defined **once** in
-[`core/schema.py`](core/schema.py) as the `ReportData` Pydantic model. That model
-is simultaneously:
+Everything the report can contain is defined **once** in [`core/schema.py`](core/schema.py) as the `ReportData` Pydantic model. That model is simultaneously:
 
 * the **contract the LLM fills** (its JSON schema is handed to the model as a tool/function), and
 * the **data the template renders** ([`templates/report.html`](templates/report.html) + [`templates/report.css`](templates/report.css)).
 
-To add a new field or section, edit `core/schema.py` and `templates/report.html` —
-no other code changes. Financial statements, shareholding, estimates, etc. are all
-modelled as a generic `Table` (title + columns + rows), so a new table for a new
-company needs **zero** code changes.
+To add a new field or section, edit `core/schema.py` and `templates/report.html` — no other code changes. Financial statements, shareholding, estimates, etc. are all modelled as a generic `Table` (title + columns + rows), so a new table for a new company needs **zero** code changes.
 
 ---
 
-## Setup
+## Setup & Running the App
 
-Requires Python 3.10+ and an API key for any supported LLM provider (Anthropic,
-OpenAI, Google Gemini, Mistral, and so on). You only need the key for the model
-you choose.
+Requires Python 3.10+ and an API key (OPENAI_API_KEY for the default gpt-4o, or others if configured).
 
+**1. Setup Environment**
 ```bash
-cd research-report-generator
-python3 -m venv venv
-source venv/bin/activate
+python -m venv venv
+.\venv\Scripts\activate   # On Windows
 pip install -r requirements.txt
 ```
 
-**macOS only:** WeasyPrint needs Pango/glib. Install once with `brew install pango`
-(this also pulls in glib). `run.sh` and `generate_examples` wrappers add Homebrew's
-lib folder to the loader path for you.
-
-Add your key:
-
+**2. Add your API Keys**
 ```bash
 cp .env.example .env
-# edit .env: set EXTRACTION_MODEL and the matching key, e.g.
-#   EXTRACTION_MODEL=anthropic/claude-sonnet-4-6  + ANTHROPIC_API_KEY=sk-ant-...
-#   EXTRACTION_MODEL=gpt-4o                        + OPENAI_API_KEY=sk-...
-#   EXTRACTION_MODEL=gemini/gemini-1.5-pro         + GEMINI_API_KEY=...
+# Edit .env and add your OPENAI_API_KEY
 ```
 
-You can also change the model live in the app under **Model settings**.
-
----
-
-## Run the app
-
+**3. Run the application**
 ```bash
-python start.py          # recommended: sets the WeasyPrint lib path, then launches
-# or:
-./run.sh                 # shell-script equivalent of start.py
-# or, if WeasyPrint's system libs are already on your loader path:
-streamlit run app.py
+python start.py
 ```
+This single command automatically starts both the **FastAPI Backend** (port 8000) and the **Vite React Frontend**! 
 
-Opens at http://localhost:8501. Then enter a company name, upload a PDF / CSV / TXT,
-click **Generate report**, and click **Download PDF report**. Press Ctrl+C in the
-terminal to stop.
-
-1. Enter a **company name**.
-2. Upload a **PDF, CSV, or TXT**.
-3. Click **Generate report**.
-4. Click **⬇ Download PDF report**.
+Open your browser to `http://localhost:8000` (FastAPI automatically mounts the built frontend). Upload your PDF, enter a company name, and click Generate.
 
 ---
 
-## Generate example PDFs from the CLI
+## Batch Processing (CLI)
 
+If you have multiple PDFs that you want to process automatically without using the UI, you can use the batch script!
+
+1. Place all your PDFs into the `input/` directory.
+2. Run the script:
 ```bash
-# macOS: prefix with the lib path (see run.sh)
-DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib" \
-  python generate_examples.py            # runs the default ICICI + LTTS docs
-
-# or pass your own "Name=path" pairs:
-python generate_examples.py "Acme=path/to/file.pdf" "Beta=data.csv"
+python batch_process.py
 ```
-
-Generated PDFs land in [`result/`](result/).
-
----
-
-## Included examples (`result/`)
-
-| File | Source doc | Input format |
-|---|---|---|
-| `ICICI_Bank_research_report.pdf` | ICICI Q2FY26 | **PDF** |
-| `LTTS_research_report.pdf` | LTTS Q2FY26 | **PDF** |
-| `POCL_(from_TXT)_research_report.pdf` | POCL Q2FY26 | **TXT** |
-| `Sample_Co_(from_CSV)_research_report.pdf` | sample_financials.csv | **CSV** |
+3. The AI will process them one-by-one and save the beautifully styled Dark Navy PDFs into the `result/` directory.
 
 ---
 
-## How the acceptance criteria are met
+## Features
 
-* **Template matches the sample** — `report.html`/`report.css` recreate the Geojit
-  layout and section order: header + rating block, description, result highlights,
-  company-data side box, shareholding & price-performance tables, charts, estimate
-  revisions, key highlights, detailed financial statements, recommendation history,
-  disclaimer.
-* **Required fields populated** — financial tables, metric box, narrative sections,
-  and **≥1 chart** (revenue trend + margin charts by default).
-* **≥2 input formats** — PDF, CSV, and TXT (see examples above).
-* **Missing fields handled gracefully** — every field is optional; absent values
-  render as `—`. Empty analyst rating/target on raw company filings is normal and
-  shown blank rather than invented (the extractor is instructed never to guess).
-* **One-click PDF download** — the `⬇ Download PDF report` button.
-
-### Nice-to-haves
-* **Multiple chart types** — grouped bars (revenue/segment) and line charts (margins),
-  driven by declarative `ChartSpec`s from the model.
-* **Modular** — add fields via `schema.py`; tables are fully generic.
+* **Beautiful Dark Navy Theme:** The PDF renderer utilizes a modern, edge-to-edge dark navy theme with vibrant blue and teal accents.
+* **Missing Data Handled Gracefully:** If the AI cannot find a piece of information (e.g. Market Cap or Target Price on a raw earnings deck), it will intelligently swap it out for the most important operational metrics it *can* find (like NPA Ratios for Banks).
+* **Missing Chart Points:** If a chart has a missing year, the parser smoothly converts the null to a `NaN` gap on the Matplotlib chart instead of crashing.
+* **Robust Fallback:** If WeasyPrint is missing system libraries (common on Windows), the app seamlessly falls back to headless Microsoft Edge to render the PDF perfectly.
+* **Unit Tested:** Core modules are fully covered by a clean `pytest` suite (`python -m pytest`).
 
 ---
 
-## Project structure
+## Project Structure
 
 ```
 research-report-generator/
-├── app.py                  # Streamlit UI (entry point)
-├── run.sh                  # macOS launch wrapper (WeasyPrint lib path)
-├── generate_examples.py    # CLI: batch-generate example PDFs
+├── frontend/               # React (Vite) UI source
+├── server.py               # FastAPI backend API routes
+├── start.py                # Wrapper to start both backend & frontend
+├── batch_process.py        # CLI script to process multiple PDFs at once
 ├── core/
 │   ├── schema.py           # ReportData — single source of truth for template fields
-│   ├── ingest.py           # PDF / CSV / TXT → normalised text (+ native PDF bytes)
+│   ├── ingest.py           # PDF / CSV / TXT → normalised text
 │   ├── extractor.py        # LLM tool-use (via LiteLLM) → validated ReportData
 │   ├── charts.py           # ChartSpec → base64 PNG (matplotlib)
-│   └── report.py           # Jinja2 render + WeasyPrint → PDF bytes
+│   └── report.py           # Jinja2 render + WeasyPrint/Edge fallback → PDF bytes
 ├── templates/
-│   ├── report.html         # report layout (Geojit-style)
-│   └── report.css          # report styling
-├── test_data/              # sample CSV + extracted TXT inputs
-└── result/                 # generated example PDFs
+│   ├── report.html         # Jinja2 HTML layout
+│   └── report.css          # Dark Navy CSS Theme
+├── tests/
+│   └── test_core.py        # Unit tests (pytest)
+├── input/                  # Place PDFs here for batch_process.py
+└── result/                 # Generated PDF outputs land here
 ```
 
-## Notes & limitations
+## Notes & Limitations
 
-* Raw company filings (investor presentations) carry no analyst rating/target/CMP,
-  so those header fields render blank — by design. Feed a broker note to populate them.
-* The extractor sends up to ~60k characters of document text; for very long decks the
-  tail is truncated (scanned PDFs are sent to the model as a file for vision-capable models).
-* Figures are AI-extracted — verify against the source before any real use.
+* Raw company filings (investor presentations) carry no analyst rating/target/CMP, so those header fields render blank — by design. The AI is explicitly instructed *not* to invent financial predictions. Feed it a broker note to populate them.
+* Figures are AI-extracted — always verify against the source before making any real financial decisions.
