@@ -1,0 +1,118 @@
+@page {
+  size: A4;
+  margin: 0;
+  @bottom-center {
+    content: "AI Equity Research  ·  generated report  ·  page " counter(page) " / " counter(pages);
+    font-size: 7pt; color: #64748B;
+  }
+}
+
+* { 
+  box-sizing: border-box; 
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 8.6pt;
+  color: #F8FAFC;
+  background-color: #0B1120; /* Deep modern navy background */
+  line-height: 1.5;
+  margin: 0;
+  padding: 1.4cm 1.3cm 1.6cm 1.3cm;
+  min-height: 100vh;
+}
+
+/* ── Brand bar ── */
+.brandbar {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 2px solid #3B82F6;
+  padding-bottom: 8px; margin-bottom: 16px;
+}
+.brand { font-size: 14pt; font-weight: 800; color: #60A5FA; letter-spacing: -0.2px; text-transform: uppercase; }
+.brand-sub { font-size: 7.5pt; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ── Title row ── */
+.title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.company { font-size: 18pt; font-weight: 800; margin: 0 0 4px; color: #FFFFFF; letter-spacing: -0.5px; }
+.sector { font-size: 9pt; color: #94A3B8; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+.rating-box { text-align: right; min-width: 150px; background: #1E293B; padding: 10px; border-radius: 8px; border: 1px solid #334155; }
+.rating-chip {
+  display: inline-block; padding: 4px 16px; border-radius: 4px;
+  font-weight: 700; font-size: 11pt; color: #fff; background: #475569; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.rating-buy, .rating-accumulate { background: #10B981; }
+.rating-hold { background: #F59E0B; }
+.rating-reduce, .rating-sell { background: #EF4444; }
+.rating-mini { width: 100%; margin-top: 8px; border-collapse: collapse; font-size: 8pt; }
+.rating-mini td { padding: 3px 0; border-bottom: 1px solid #334155; }
+.rating-mini tr:last-child td { border-bottom: none; }
+.rating-mini td:first-child { color: #94A3B8; text-align: left; }
+.rating-mini td:last-child { text-align: right; font-weight: 700; color: #F8FAFC; }
+
+.thesis {
+  margin: 16px 0; padding: 10px 14px; background: #172554;
+  border-left: 4px solid #3B82F6; font-weight: 500; font-size: 9.5pt; color: #DBEAFE;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── Two-column layout ── */
+.cols { margin-top: 12px; }
+.col-side { float: right; width: 34%; margin: 0 0 10px 20px; }
+.col-main { }
+.clear { clear: both; }
+
+.description { margin: 0 0 12px; text-align: justify; color: #CBD5E1; font-size: 9pt; }
+
+.section-label {
+  font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: #60A5FA; margin: 18px 0 10px; border-bottom: 1px solid #334155; padding-bottom: 4px;
+}
+.side-label {
+  font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+  color: #94A3B8; margin: 0 0 6px;
+}
+
+.bullets { margin: 0 0 12px; padding-left: 18px; color: #CBD5E1; }
+.bullets li { margin-bottom: 6px; }
+
+/* ── Key-value side box ── */
+.kv { width: 100%; border-collapse: collapse; margin-bottom: 16px; background: #0F172A; border-radius: 8px; overflow: hidden; border: 1px solid #1E293B; }
+.kv td { padding: 5px 8px; border-bottom: 1px solid #1E293B; font-size: 8pt; }
+.kv tr:last-child td { border-bottom: none; }
+.kv td:first-child { color: #94A3B8; font-weight: 500; }
+.kv td:last-child { text-align: right; font-weight: 700; color: #F8FAFC; }
+
+/* ── Tables ── */
+table.fin-table, table.side-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; border: 1px solid #1E293B; }
+.fin-table th, .side-table th {
+  background: #1E293B; color: #60A5FA; font-size: 7.6pt; font-weight: 700;
+  padding: 6px 8px; text-align: right; border-bottom: 2px solid #3B82F6;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.fin-table th.rowlabel, .side-table th.rowlabel { text-align: left; }
+.fin-table td, .side-table td {
+  padding: 5px 8px; text-align: right; font-size: 8pt;
+  border-bottom: 1px solid #1E293B; color: #CBD5E1;
+}
+.fin-table td.rowlabel, .side-table td.rowlabel { text-align: left; font-weight: 600; color: #F8FAFC; }
+.fin-table tbody tr:nth-child(even), .side-table tbody tr:nth-child(even) { background: #0F172A; }
+.side-table th, .side-table td { font-size: 7.3pt; padding: 4px 6px; }
+
+/* ── Charts ── */
+.charts { font-size: 0; margin: 8px 0 16px; }
+.chart {
+  display: inline-block; width: 48.5%; vertical-align: top; box-sizing: border-box;
+  background: #0F172A; border: 1px solid #1E293B; border-radius: 8px; padding: 8px;
+}
+.chart:nth-child(even) { margin-left: 2.5%; }
+.chart img { width: 100%; height: auto; display: block; filter: invert(0.9) hue-rotate(180deg); }
+
+/* ── Misc ── */
+.page-break { page-break-before: always; }
+.disclaimer {
+  margin-top: 24px; padding-top: 12px; border-top: 1px solid #334155;
+  font-size: 7pt; color: #64748B; line-height: 1.5; text-align: justify;
+}
