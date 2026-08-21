@@ -41,23 +41,19 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 from core.ingest import IngestedDoc
 from core.schema import ReportData
+from core.insight_api import fetch_market_data
 
 # Ensure OpenRouter API key from env is bound
 if not os.getenv("OPENROUTER_API_KEY") and os.getenv("API_KEY"):
     os.environ["OPENROUTER_API_KEY"] = os.getenv("API_KEY", "")
 
-# Default model. Override via the EXTRACTION_MODEL environment variable to use
-# any provider/model you have a key for.
-DEFAULT_MODEL = os.getenv("EXTRACTION_MODEL", "openrouter/openai/gpt-4o-mini")
+DEFAULT_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-4o")
 
 
-
-
-# How much document text we send. Long decks are trimmed to a safe size.
-# Increased to 300,000 for gpt-4o which has a 128k token context window
 MAX_TEXT_CHARS = 300_000
 
-litellm.drop_params = True  # silently drop params a given provider doesn't support
+litellm.drop_params = True
+litellm.suppress_debug_info = True
 
 SYSTEM_PROMPT = """You are an equity research analyst's assistant. You read a company's \
 financial document (earnings press release, investor presentation, results, or a CSV/TXT \
@@ -96,11 +92,50 @@ def _tool_spec() -> dict:
     }
 
 
-def _user_content(doc: IngestedDoc, company_name: str):
+def _get_search_query(doc: IngestedDoc, model: str) -> str:
+    """Use a fast LLM call to determine the best search query (like a stock ticker) from the document."""
+    if not doc.has_usable_text:
+        return ""
+    
+    prompt = (
+        "Identify the core company name or stock ticker symbol for the company "
+        "mentioned in this document. Return ONLY the ticker or name, nothing else. "
+        "CRITICAL: Do NOT include exchange suffixes like '.NS' or '.BO' (e.g. return 'ICICIBANK' instead of 'ICICIBANK.NS').\n\n"
+        f"Document text:\n{doc.text[:3000]}"
+    )
+    
+    try:
+        resp = litellm.completion(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=20,
+            temperature=0
+        )
+        return resp.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"Failed to get search query: {e}")
+        return ""
+
+def _user_content(doc: IngestedDoc, company_name: str, model: str = DEFAULT_MODEL, report_id: str = None):
     instruction = (
         f"Company name (as provided by the user): {company_name or 'unknown — infer from the document'}.\n\n"
         "Extract the research-report data from the document below and call `emit_report`."
     )
+    
+    # Fetch additional market data
+    market_data_info = ""
+    search_query = _get_search_query(doc, model) or company_name
+    if search_query:
+        print(f"  - Using search query for InsightSentry: {search_query}")
+        market_data = fetch_market_data(search_query)
+        
+        from core.audit import log_enrichment
+        if market_data:
+            market_data_info = f"\n\n=== ADDITIONAL MARKET DATA ===\n{market_data}\n"
+            instruction += market_data_info
+            if report_id: log_enrichment(report_id, "success", False)
+        else:
+            if report_id: log_enrichment(report_id, "failed", False)
 
     # Scanned/image PDF with no usable text -> attach the file for vision models.
     if doc.fmt == "pdf" and not doc.has_usable_text and doc.pdf_bytes:
@@ -151,12 +186,36 @@ def _parse_message(message) -> ReportData | None:
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=12))
-def extract_report(doc: IngestedDoc, company_name: str, model: str = DEFAULT_MODEL) -> ReportData:
-    """Run extraction with the configured model and return a ReportData."""
+def extract_report(doc: IngestedDoc, company_name: str, model: str = DEFAULT_MODEL, report_id: str = None) -> ReportData:
+    """Run the extraction prompt against the provided document and parse the result."""
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": _user_content(doc, company_name)},
+        {"role": "user", "content": _user_content(doc, company_name, model, report_id)},
     ]
+
+    # --- DEBUG LOGGING ---
+    # Save the exact prompt being sent to the LLM to a file for checking
+    try:
+        import os
+        os.makedirs("result", exist_ok=True)
+        with open("result/prompt_debug.txt", "w", encoding="utf-8") as f:
+            f.write("=== SYSTEM PROMPT ===\n")
+            f.write(str(messages[0]["content"]))
+            f.write("\n\n=== USER PROMPT (Includes PDF & API Data) ===\n")
+            
+            user_content = messages[1]["content"]
+            if isinstance(user_content, list):
+                for part in user_content:
+                    if part.get("type") == "text":
+                        f.write(str(part["text"]))
+                    else:
+                        f.write(f"\n[Attached File: {part.get('type')}]\n")
+            else:
+                f.write(str(user_content))
+    except Exception as e:
+        print(f"Failed to write debug log: {e}")
+    # ---------------------
+
 
     kwargs = dict(model=model, messages=messages, max_tokens=8192, temperature=0)
     # Try to force the function call; some providers ignore tool_choice, so fall

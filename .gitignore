@@ -5,6 +5,7 @@ __pycache__/
 *$py.class
 .pytest_cache/
 *.log
+*.db
 
 # Environment Variables
 .env
@@ -18,6 +19,7 @@ dist-ssr/
 
 # Project specific folders
 scratch/
+.gemini/
 
 # OS generated files
 .DS_Store
@@ -27,3 +29,4 @@ scratch/
 .Trashes
 ehthumbs.db
 Thumbs.db
+

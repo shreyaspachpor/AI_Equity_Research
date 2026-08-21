@@ -135,3 +135,28 @@ class ReportData(BaseModel):
 # Fields the acceptance criteria call "required" — used by the UI to warn (not
 # fail) when extraction comes back thin.
 CORE_FIELDS = ["company_name", "description", "highlights", "company_data", "financials"]
+
+# ── Update & Verification schemas ───────────────────────────────────────
+from enum import Enum
+
+class UpdateDecision(str, Enum):
+    uncontested = "uncontested"
+    already_current = "already_current"
+    non_comparable = "non_comparable"
+    verified_selected = "verified_selected"
+    all_rejected = "all_rejected"
+    insufficient_evidence = "insufficient_evidence"
+
+class SurgicalPatch(BaseModel):
+    section_id: str = Field(description="The exact field name/section ID to patch, e.g., 'highlights' or 'company_data'")
+    before_text: str = Field(description="The exact snippet of text currently in the report to replace. MUST exactly match what is in the report.")
+    after_text: str = Field(description="The new text to replace it with.")
+
+class UpdateRoute(BaseModel):
+    decision: UpdateDecision = Field(description="Explicit routing decision for this claim.")
+    rationale: str = Field(description="Concise rationale naming the selected/rejected claim, period, scope, and evidence chunk.")
+    mcp_evidence: Optional[str] = Field(default=None, description="The chunk ID or page snippet from MCP that supports this verdict. Use null if MCP wasn't called.")
+    patch: Optional[SurgicalPatch] = Field(default=None, description="The patch to apply if this claim is accepted (uncontested or verified_selected).")
+
+class UpdateBatchResult(BaseModel):
+    routes: List[UpdateRoute] = Field(description="One explicit route/decision for every material claim in the user's input.")

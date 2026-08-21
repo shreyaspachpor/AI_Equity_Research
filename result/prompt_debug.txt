@@ -1,0 +1,974 @@
+=== SYSTEM PROMPT ===
+You are an equity research analyst's assistant. You read a company's financial document (earnings press release, investor presentation, results, or a CSV/TXT of financials) and produce the structured data for a Geojit-style equity research report.
+
+Rules:
+- Extract ONLY what the document supports. NEVER invent numbers. If a value is absent,
+  leave the field blank ("" / empty list / null) — do not guess.
+- Prefer the most recent reported quarter/year and include historical + estimate columns
+  when the document provides them.
+- For tables, keep every row's `cells` aligned to `columns` (same length and order);
+  use "" for a cell with no value.
+- Write `description` as 2-4 neutral sentences. Write `highlights` as crisp result bullets
+  (revenue, growth %, margins, PAT, segment notes). Write `key_highlights` as analytical
+  outlook/driver/risk bullets.
+- Populate `company_data` with whatever market data exists (Market Cap, 52W High/Low,
+  Enterprise Value, Shares Outstanding, Free Float %, Dividend Yield, Beta, Face Value...).
+- Build `financials` as one table per statement you find (Profit & Loss, Balance Sheet,
+  Cash Flow, Key Ratios). Use the document's own year columns.
+- Always provide at least two `charts` when the numbers allow it: a revenue-trend chart
+  ('bar') and a margin or profit chart ('line'), with x labels matching the financial years.
+- `rating`, `target_price`, `current_price`, `upside` only if the document states them.
+
+Call the `emit_report` function exactly once with the structured data.
+
+=== USER PROMPT (Includes PDF & API Data) ===
+Company name (as provided by the user): ICICI.
+
+Extract the research-report data from the document below and call `emit_report`.
+
+=== ADDITIONAL MARKET DATA ===
+Market Data from InsightSentry (Basic Info):
+
+Company Name: ICICI Bank Limited
+Ticker: NSE:ICICIBANK
+Exchange: NSE
+Sector/Industry: Finance / Regional Banks
+Market Cap: 10059710037709.0 INR
+Shares Outstanding: 7176280000
+Total Revenue: 3130903323000.0 INR
+P/E Ratio (TTM): 18.12306101344364
+EPS (TTM): 78.3902
+Dividend Yield: 0.8501594048884166
+52-Week High: 1500.0 (Note: Check if this represents 52W or All Time)
+52-Week Low: 3.7727235
+Current Price (Prev Close): 1411.9
+Description: ICICI Bank Ltd. engages in the provision of banking and financial services, which includes retail banking, corporate banking, and treasury operations. It operates through the following segments: Retail Banking, Wholesale Banking, Treasury, Other Banking, Life Insurance, and Others. The Retail Banking segment includes exposures of the bank, which satisfy the four qualifying criteria of regulatory retail portfolio as stipulated by the Reserve Bank of India guidelines on the Basel III framework. The Wholesale Banking segment deals with all advances to trusts, partnership firms, companies, and statutory bodies, by the Bank which are not included in the Retail Banking segment. The Treasury segment handles the entire investment portfolio of the bank. The Other Banking segment comprises leasing operations and other items not attributable to any particular business segment of the bank. The Life Insurance segment represents results of ICICI Prudential Life Insurance Company Limited. The Others segment include ICICI Home Finance Company Limited, ICICI Venture, ICICI International Limited, ICICI Securities Primary Dealership Limited, ICICI Securities Limited, ICICI Securities Holdings Inc., ICICI Securities Inc., ICICI Prudential Asset Management Company Limited, ICICI Prudential Trust Limited, ICICI Investment Management Company Limited, ICICI Trusteeship Services Limited, and ICICI Prudential Pension Funds Management Company Limited. The company was founded in 1955 and is headquartered in Mumbai, India.
+
+
+
+=== DOCUMENT (ICICI Q2FY26.pdf) ===
+October 18, 2025 
+ 
+BSE Limited 
+Listing Department 
+Phiroze Jeejeebhoy Towers  
+Dalal Street 
+Mumbai 400 001 
+National Stock Exchange of India Limited 
+Listing Department 
+Exchange Plaza, 5th floor 
+Plot No. C/1, G Block 
+Bandra-Kurla Complex  
+Bandra(East 
+Mumbai 400 051 
+ 
+Dear Sir/Madam, 
+ 
+Sub: Investor Presentation 
+ 
+Please find attached the investor presentation which will be referred during the earnings 
+call with analysts and investors for the financial results of the Bank for the quarter and 
+six months ended September 30, 2025. 
+ 
+The said presentation is being uploaded on the website of the Bank and can be accessed 
+at https://www.icicibank.com/about-us/qfr. 
+ 
+This is for your records and information. 
+ 
+Yours sincerely,  
+For ICICI Bank Limited 
+ 
+ 
+ 
+Prachiti D. Lalingkar 
+Company Secretary 
+ 
+Encl: As above 
+ 
+Copy to-  
+(i) New York Stock Exchange (NYSE) 
+(ii) Singapore Stock Exchange 
+(iii) Japan Securities Dealers Association 
+(iv) SIX Swiss Exchange Ltd 
+ 
+ 
+ 
+Q2-2026: 
+Performance review
+October 18, 2025
+2
+Certain definitions in this release relating to a future period of time (including inter alia concerning our 
+future business plans or growth prospects) are forward-looking statements intended to qualify for the 'safe 
+harbor' under applicable securities laws including the US Private Securities Litigation Reform Act of 1995. 
+Such forward-looking statements involve a number of risks and uncertainties that could cause actual 
+results to differ materially from those in such forward-looking statements. These risks and uncertainties 
+include, but are not limited to statutory and regulatory changes, international economic and business 
+conditions; political or economic instability in the jurisdictions where we have operations or which affect 
+global or Indian economic conditions, increase in non-performing loans, unanticipated changes in interest 
+rates, foreign exchange rates, equity prices or other rates or prices, our growth and expansion in business, 
+the adequacy of our allowance for credit losses, the actual growth in demand for banking products and 
+services, investment income, cash flow projections, our exposure to market risks, changes in India’s 
+sovereign rating, as well as other risks detailed in the reports filed by us with the United States Securities 
+and Exchange Commission. Any forward-looking statements contained herein are based on assumptions 
+that we believe to be reasonable as of the date of this release. ICICI Bank undertakes no obligation to 
+update forward-looking statements to reflect events or circumstances after the date thereof. Additional 
+risks that could affect our future operating results are more fully described in our filings with the United 
+States Securities and Exchange Commission. These filings are available at www.sec.gov.
+Highlights for Q2-2026
+3
+4
+Key highlights for Q2-2026 (1/2)
+• Profit before tax excluding treasury grew by 9.1% y-o-y to ₹ 161.64 bn in 
+     Q2-2026
+• Core operating profit grew by 6.5% y-o-y to ₹ 170.78 bn in Q2-2026
+• Profit after tax grew by 5.2% y-o-y to ₹ 123.59 bn in Q2-2026
+• Average deposits grew by 9.1% y-o-y and 1.6% q-o-q in Q2-2026
+• Average savings account deposits increased by 8.5% y-o-y and 3.2% q-o-q
+• Average current account deposits increased by 12.6% y-o-y and 1.6% q-o-q
+• Period end total deposits grew by 7.7% y-o-y and 0.3% q-o-q at Sep 30, 2025 
+• Domestic loans grew by 10.6% y-o-y and 3.3% q-o-q
+• Retail loans grew by 6.6% y-o-y and 2.6% q-o-q
+• Business banking1 portfolio grew by 24.8% y-o-y and 6.5% q-o-q
+• Domestic corporate portfolio grew by 3.5% y-o-y and 1.0% q-o-q
+Earnings
+Deposits
+Advances 
+1. This portfolio comprises borrowers with turnover of upto ₹ 7.50 bn
+5
+Key highlights for Q2-2026 (2/2)
+• Net additions of ₹ 13.86 bn to gross NPAs in Q2-2026 (Q1-2026: ₹ 30.34 bn)
+• Provisions of ₹ 9.14 bn in Q2-2026 (Q1-2026: ₹ 18.15 bn)
+• Net NPA ratio was 0.39% at Sep 30, 2025 (Jun 30, 2025: 0.41%)
+• Provision coverage ratio was 75.0% at Sep 30, 2025 
+• Standard, contingency and other provisions of ₹ 226.20 bn (1.6% of advances) 
+at Sep 30, 2025
+• Contingency provisions of ₹ 131.00 bn at Sep 30, 2025
+• Common Equity Tier 1 ratio of 16.35%1 (Jun 30, 2025: 16.31%2)
+• Total capital adequacy ratio of 17.00%1
+1. Including profits for H1-2026
+2. Including profits for Q1-2026
+Asset 
+quality
+Capital
+Operating performance
+6
+Profit & loss statement
+(₹ billion) FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+Q2-o-Q2
+(%)
+Net interest income 811.65 200.481 396.01 216.351 215.291 431.64 7.4%
+Non-interest income 266.03 64.96 128.85 72.64 73.56 146.20 13.2%
+- Fee income 238.70 58.94 113.84 59.00 64.91 123.91 10.1%
+- Dividend income  from 
+subsidiaries 26.19 5.41 14.35 13.36 8.10 21.46 49.7%
+- Others 1.14 0.61 0.66 0.28 0.55 0.83 (10.9)%
+Core operating income 1,077.68 265.44 524.86 288.99 288.85 577.84 8.8%
+Operating expenses 423.72 105.01 210.31 113.94 118.07 232.01 12.4%
+- Employee expenses 165.41 41.36 85.07 47.43 43.42 90.85 5.0%
+- Non-employee expenses 258.31 63.65 125.24 66.51 74.65 141.16 17.3%
+Core operating profit 653.96 160.43 314.55 175.05 170.78 345.83 6.5%
+Core operating profit 
+excluding dividend income 627.76 155.02 300.20 161.69 162.68 324.37 4.9%
+7
+1. Includes interest on tax refund of ₹ 0.08 bn in Q2-2026 compared to ₹ 3.61 bn in Q1-2026 and ₹ 0.03 bn in Q2-2025
+Profit & loss statement
+₹ in billion FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+Q2-o-Q2
+(%)
+Core operating profit 653.96 160.43 314.55 175.05 170.78 345.83 6.5%
+Provisions 46.83 12.33 25.65 18.15 9.14 27.29 (25.9)%
+Profit before tax excluding 
+treasury 607.13 148.10 288.90 156.90 161.64 318.54 9.1%
+Treasury income 19.03 6.80 12.93 12.41 2.20 14.61 (67.6)%
+Profit before tax 626.16 154.90 301.83 169.31 163.84 333.15 5.8%
+Tax 153.89 37.44 73.78 41.63 40.25 81.88 7.5%
+Profit after tax 472.27 117.46 228.05 127.68 123.59 251.27 5.2%
+8
+Consolidated P&L and ratios: slide 40-42
+Key ratios
+Percent FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+20261
+Q2-
+20261
+H1-
+20261
+Net interest margin 4.32 4.272  4.31 4.342 4.302 4.32
+Cost of deposits 4.91 4.88 4.87 4.85 4.64 4.75
+Cost-to-income 38.6 38.6 39.1 37.8 40.6 39.2
+Core operating profit/average assets 3.33 3.27 3.28 3.34 3.22 3.28
+Provisions/core operating profit 7.2 7.7 8.2 10.4 5.4 7.9
+Provisions/average advances 0.36 0.38 0.41 0.53 0.26 0.40
+Return on average assets 2.40 2.39 2.38 2.44 2.33 2.38
+Standalone return on equity 17.9 18.1 18.1 17.1 16.0 16.6
+Weighted average EPS (₹) 67.0 66.2 64.7 71.6 69.2 70.4
+Book value (₹) 410.1 368.3 368.3 429.3 436.0 436.0
+Yield, cost and margin: slide 39
+9
+1. Annualised on the basis of ‘number of months’ effective from Q1-2026 (‘number of days’ for previous periods)
+2. Impact of interest on tax refund was nil in Q2-2026 compared to 7 bps in Q1-2026 and nil in Q2-2025
+Unconsolidated segment-wise PBT
+Profit before tax 
+(₹ billion) FY2025 Q2-2025 H1-2025 Q1-2026 Q2-2026 H1-2026
+Retail 216.21 55.56 97.95 47.35 63.18 110.53
+Wholesale 215.64 51.98 101.10 53.87 57.60 111.47
+Treasury 187.61 46.03 100.77 62.61 41.42 104.03
+Others 6.70 1.33 2.01 5.48 1.64 7.12
+Unallocated1 - - - - - -
+Total 626.16 154.90 301.83 169.31 163.84 333.15
+101. Represents contingency provision
+Balance sheet growth
+11
+Outstanding deposits
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Y-o-Y 
+growth
+% share at 
+Sep 30, 2025
+CASA 6,087.23 6,628.13 6,588.71 8.2% 40.9%
+- Current 1,830.90 2,169.71 2,067.47 12.9% 12.8%
+- Savings 4,256.33 4,458.42 4,521.24 6.2% 28.1%
+Term 8,890.38 9,457.04 9,539.54 7.3% 59.1%
+Total deposits 14,977.61 16,085.17 16,128.25 7.7% 100.0%
+Balance sheet-liabilities: slide 43-44
+Consolidated balance sheet: slide 45 Extensive franchise: slide 46
+12
+Average deposits
+(₹ billion) Q2-2025 Q1-2026 Q2-2026 Y-o-Y 
+growth
+CASA 5,560.48 5,939.09 6,101.04 9.7%
+Term 8,720.47 9,393.32 9,473.45 8.6%
+Total deposits 14,280.95 15,332.41 15,574.49 9.1%
+Average CASA ratio 38.9% 38.7% 39.2% -
+13
+• Average current account deposits increased by 12.6% y-o-y and 1.6% sequentially in Q2-2026
+• Average savings account deposits increased by 8.5% y-o-y and 3.2% sequentially in Q2-2026
+1. This portfolio comprises borrowers with turnover of upto ₹ 7.50 bn
+2. Bill rediscounting scheme/Interbank participatory certificate
+3. Proportions are gross of BRDS/IBPC
+Loan portfolio
+• Including non-fund based outstanding, the share of retail portfolio was 42.9% of the total portfolio at Sep 30, 2025
+• Of the total domestic loan book, 31% has fixed interest rate, 55% has interest rate linked to repo rate and other external benchmarks 
+and 14% has interest rate linked to MCLR and other older benchmarks
+Balance sheet-assets: slides 47-48
+Portfolio composition: slide 49 14
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Y-o-Y 
+growth
+Q-o-Q 
+growth 
+% share at 
+Sep 30, 20253
+Retail 6,935.07 7,205.40 7,393.84 6.6% 2.6% 52.1%
+Rural loans 787.89 771.51 777.61 (1.3)% 0.8% 5.5%
+Business banking1 2,330.25 2,730.83 2,909.21 24.8% 6.5% 20.5%
+Domestic corporate and 
+others 2,690.29 2,757.32 2,784.44 3.5% 1.0% 19.6%
+Total domestic book 
+(gross of BRDS/IBPC) 12,743.50 13,465.06 13,865.10 8.8% 3.0% 97.7%
+BRDS/IBPC2 (312.60) (153.10) (112.50) (64.0)% (26.5)% -
+Total domestic book (net 
+of BRDS/IBPC) 12,430.90 13,311.96 13,752.60 10.6% 3.3% 97.7%
+Overseas book 341.50 329.61 331.96 (2.8)% 0.7% 2.3%
+Total advances 12,772.40 13,641.57 14,084.56 10.3% 3.2% 100.0%
+Retail portfolio 
+15
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Y-o-Y 
+growth
+Q-o-Q 
+growth
+% share at 
+Sep 30, 2025
+Mortgages 4,191.05 4,478.85 4,606.14 9.9% 2.8% 62.3%
+Vehicle loans 943.19 962.73 962.66 2.1% -1 13.0%
+- Auto finance 606.87 615.31 615.55 1.4% -1 8.3%
+- Commercial vehicle and 
+equipment 321.34 340.18 341.96 6.4% 0.5% 4.6%
+Personal loans 1,225.01 1,200.10 1,216.55 (0.7)% 1.4% 16.4%
+Credit cards 552.81 542.55 588.00 6.4% 8.4% 8.0%
+Loan against shares and 
+others 23.01 21.17 20.49 (11.0)% (3.2)% 0.3%
+Total retail loans 6,935.07 7,205.40 7,393.84 6.6% 2.6% 100.0%
+1. Represents insignificant number
+Asset quality trends
+16
+NPA trends
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Gross NPAs1 271.21 247.33 238.50
+Less: cumulative provisions 214.36 187.62 180.23
+Net NPAs1 56.85 59.71 58.27
+Gross NPA ratio1 1.97% 1.67% 1.58%
+Net NPA ratio1 0.42% 0.41% 0.39%
+Provision coverage ratio 78.5% 75.3% 75.0%
+171. Based on customer assets
+Retail and rural NPAs: slide 50
+NPA movement1
+18
+1. Based on customer assets
+2. Includes additions of ₹ 7.67 bn from kisan credit card portfolio
+₹ billion FY2025 Q2-2025 Q1-2026 Q2-2026
+Opening gross NPA 279.62 287.19 241.66 247.33
+Add: gross additions (1) 202.11 50.73 62.45 50.34
+- Retail and rural 176.44 43.41 51.932 40.49
+- Corporate and business banking 25.67 7.32 10.52 9.85
+Less: recoveries, upgrades and others (2) 117.62 33.19 32.11 36.48
+- Retail and rural 93.93 25.92 25.25 26.10
+- Corporate and business banking 23.69 7.27 6.86 10.38
+Net additions (1)-(2) 84.49 17.54 30.34 13.86
+Less: write-offs 92.71 33.36 23.59 22.63
+: sale of NPAs 29.74 0.16 1.08 0.06
+Closing gross NPAs 241.66 271.21 247.33 238.50
+19
+1. Includes standard borrowers under resolution as per various RBI frameworks
+2. Fund-based and non-fund based outstanding. Excludes banks, investments and fund and non-fund based outstanding to NPAs 
+3. Upgrade of certain borrowers having non-fund outstanding from non-performing to performing status
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+1 Resolution under RBI frameworks
+Retail and rural1 21.29 16.22 14.84
+Corporate and business banking1 4.17 1.66 1.40
+Total fund based o/s1 25.46 17.88 16.24
+2 Corporate: BB and below outstanding2
+- Borrowers with o/s greater than ₹ 1.00 bn 25.53 24.58 31.64
+- Borrowers with o/s less than ₹ 1.00 bn 8.33 5.37 4.97
+Total 33.86 29.95 36.613
+3 Non-fund o/s to NPAs 33.82 32.98 23.22
+3
+Other portfolios
+Standard assets and other provisions1,2
+20
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Total provisions 231.91 226.64 226.20
+-- of which contingency provisions 131.00 131.00 131.00
+Total as a % of net advances 1.8% 1.7% 1.6%
+1. Excludes specific provisions on fund-based outstanding to borrowers classified as non-performing
+2. Includes general provision on standard assets, contingency provisions, provisions held for non fund 
+based outstanding to borrowers classified as non-performing, fund and non-fund based 
+outstanding to standard borrowers under resolution and performing BB and below corporate 
+portfolio
+Loan portfolio information
+21
+Diversified and granular loan book
+22
+1. Proportions are gross of BRDS/IBPC
+2. This portfolio comprises borrowers with turnover of upto ₹ 7.50 bn
+3. Including non-fund based outstanding, the share of retail portfolio was 42.9% of the total portfolio at Sep 30, 2025
+52.1% of total loans are retail3
+Breakup of loan portfolio1 at Sep 30, 2025
+2
+Mortgage, personal loan and credit card portfolio
+23
+Mortgage Personal loans and credit cards
+~ 65% Portfolio to existing customers
+~ 85% Portfolio of salaried individuals
+~90%
+Mortgage customers have 
+existing relationship with 
+the Bank
+~ ₹ 3.9 mn
+Average ticket 
+size of home loan
+~60%
+Average loan-to-
+value ratio of 
+home loan
+~40%
+Average loan-to-value 
+ratio of loan against 
+property
+Mortgage portfolio includes home loans ~65%, top-up 
+loans given to existing home loan customers 6%, non-
+residential loans ~6% and loan against property ~17% 
+iLens, an integrated, end-to-end, retail lending solution, covering all facets of loan lifecycle from 
+sourcing till disbursement. Single interface for employees, third-party agencies and sourcing channels
+Growth in retail credit card spends 
+driven by 
+▪ Collaboration with leading brands
+▪ Extending convenient and rewarding 
+payment option through UPI on credit card
+▪ Increasing EMI campaigns to drive 
+affordability
+Business banking portfolio
+24
+~70% of the portfolio by value 
+having ticket size < ₹ 10 crore 
+Focus on parameterised and programme based lending, 
+granularity, collateral and robust monitoring; well diversified 
+portfolio across sectors and geographies
+Growth driven by leveraging branch network and digital 
+platforms such as, InstaBIZ, Merchant STACK and Trade 
+Online, end to end digital onboarding platform DigiEase, 
+and efforts towards process decongestion such as e-signing 
+of disbursement documents through EazySign
+Primary collateral in the business banking portfolio in the form of charge on 
+current assets and backed by immovable property
+
+Rating-wise loan book for corporate portfolio
+25
+Rating category1 Mar 31, 
+2022
+Mar 31, 
+2023
+Mar 31, 
+2024
+Mar 31, 
+2025
+Jun 30, 
+2025
+Sep 30, 
+2025
+AA- and above 46.4% 45.0% 38.3% 35.9% 33.1% 30.3%
+A+, A, A- 31.0% 35.6% 40.2% 38.9% 40.1% 42.9%
+A- and above 77.4% 80.6% 78.5% 74.8% 73.2% 73.2%
+BBB+,BBB, BBB- 19.1% 17.9% 20.0% 24.1% 26.0% 25.9%
+BB and below 2.6% 1.0% 1.0% 0.7% 0.6% 0.5%
+Non-performing loans 0.6% 0.3% 0.1% 0.1% 0.1% 0.1%
+Unrated 0.3% 0.2% 0.4% 0.3% 0.1% 0.3%
+Total 100.0% 100.0% 100.0% 100.0% 100.0% 100.0%
+Total net loans corporate 
+portfolio (₹ billion) 2,257 2,525 2,689 2,990 2,992 3,061
+1. Based on internal ratings 
+Exposure to power sector
+(₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+% share at 
+Sep 30, 2025
+Borrowers classified as NPA or part of BB 
+and below portfolio1 9.23 8.57 8.42 1.6%
+Other borrowers 492.81 534.52 508.38 98.4%
+Total 502.04 543.09 516.80 100.0%
+• Of the other borrowers aggregating ₹ 508.38 billion, excluding exposure to 
+State Electricity Boards, about 84% was rated A- and above
+Sector-wise exposures: slide 51
+261. Including loans restructured or under RBI resolution scheme
+NBFCs, HFCs and builder portfolio
+Outstanding (₹ billion) Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+NBFCs/HFCs1 880.27 874.17 794.33
+Builder portfolio (construction finance, lease rental 
+discounting, term loans and working capital) 542.16 628.33 635.83
+271. Includes loans, investment and non-fund based outstanding
+• Proportion of the NBFCs/HFCs portfolio internally rated BB and below or non-performing at 
+Sep 30, 2025 was < 0.5% 
+• 1.3% of the builder portfolio at Sep 30, 2025 was either internally rated BB and below or 
+classified as non-performing
+Portfolio of overseas branches 
+28
+Total outstanding1 at Sep 30, 2025: USD 3.08 billion
+1. Corporate fund and non-fund outstanding of overseas branches, net of cash/bank/insurance backed lending
+
+Concentration risk ratios
+• All top 20 borrowers as of Sep 30, 2025 are rated A- and above internally
+Advances Mar 31, 
+2022
+Mar 31, 
+2023
+Mar 31, 
+2024
+Mar 31, 
+2025
+Jun 30, 
+2025
+Sep 30, 
+2025
+Exposure to top 20 
+borrowers1 as a % of 
+total exposure
+9.6% 8.5% 8.3% 7.5% 7.1% 6.7%
+Exposure to top 10 
+groups as a % of total 
+exposure
+10.3% 10.1% 10.0% 9.6% 9.6% 9.4%
+29
+1. Excludes banks
+Deposits Mar 31, 
+2022
+Mar 31, 
+2023
+Mar 31, 
+2024
+Mar 31, 
+2025
+Jun 30, 
+2025
+Sep 30, 
+2025
+Exposure to top 20 
+depositors1 as a % of 
+total deposits
+5.26% 3.46% 3.44% 4.16% 4.15% 3.25%
+Capital
+30
+Standalone capital adequacy
+Jun 30, 20251 Sep 30, 20252
+(₹ billion) % (₹ billion) %
+Total capital 2,690.28 16.31% 2,694.55 15.76%
+- Tier I 2,580.96 15.65% 2,583.38 15.11%
+- of which: CET1 2,580.96 15.65% 2,583.38 15.11%
+- Tier II 109.32 0.66% 111.17 0.65%
+Risk weighted assets 16,489.66 17,097.47
+- On balance sheet 14,642.55 15,203.78
+- Off balance sheet 1,847.11 1,893.69
+• Including profits for H1-2026, CET1 ratio was 16.35%, Tier I ratio was 16.35% and total 
+capital adequacy ratio was 17.00% at Sep 30, 2025
+1. Excluding profits for Q1-2026
+2. Excluding profits for H1-2026
+Consolidated capital adequacy: slide 52
+31
+Group companies
+32
+Profit after tax of key subsidiaries
+1. As per Ind AS
+2. Represents total comprehensive income 
+Details on key subsidiaries: slides 53-58
+33
+Profit after tax (₹ billion) FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+ICICI Prudential Life Insurance 11.89 2.52 4.77 3.02 2.99 6.01
+ICICI Lombard General Insurance 25.08 6.94 12.74 7.47 8.20 15.67
+ICICI Prudential Asset Management1 26.51 6.94 13.27 7.82 8.35 16.17
+ICICI Securities (Consolidated)1 19.42 5.29 10.56 3.91 4.25 8.16
+ICICI Securities Primary Dealership1,2 5.37 2.68 3.57 4.44 (0.32) 4.12
+ICICI Home Finance1 7.44 1.83 3.00 2.14 2.03 4.17
+ICICI Venture 0.15 0.00 (0.01) (0.01) 1.31 1.30
+ICICI Bank UK (USD million) 26.8 8.0 15.7 5.9 6.4 12.3
+ICICI Bank Canada (CAD million) 71.6 19.1 39.4 7.8 6.3 14.1
+Key subsidiaries
+ICICI Prudential Life Insurance
+• APE1 was ₹ 42.86 billion in H1-2026 compared to ₹ 44.67 billion in H1-2025
+• VNB1 was ₹ 10.49 billion in H1-2026 compared to ₹10.58 billion in H1-2025
+• New business sum assured grew by 19.3% y-o-y in H1-2026 
+ICICI Lombard General Insurance2
+• GDPI was ₹ 65.96 billion in Q2-2026 compared to ₹ 67.21 billion in Q2-2025 
+ICICI Securities
+• Total assets3 grew by 6.3% y-o-y to ₹ 8.4 trillion in Q2-2026
+• Market share in MTF4 of about 16.0% at Sept 30, 2025
+34
+1. Annualised Premium Equivalent (APE); Value of New Business (VNB)
+2. With effect from October 1, 2024, long-term products are accounted on 1/n basis, as mandated by IRDAI, hence Q2-2026 numbers are not 
+fully comparable with prior periods
+3. Including equity demat assets maintained with ICICI Bank and excluding promoter holding as at September 30, 2025
+4. Margin Trading Facility
+Environmental, Social and Governance (ESG) 
+initiatives
+35
+ESG @ ICICI Bank
+36
+Environment
+ Social
+ Governance
+Promoting sustainable 
+environmental practices
+• As part of roadmap to become 
+carbon neutral by FY2032,  
+options being evaluated for 
+access to green power in some 
+locations
+• Increased focus on initiatives 
+related to water and waste 
+circularity 
+Striving to create value 
+for all stakeholders
+• CSR support for Tata Memorial 
+Centre’s three new cancer care 
+facilities enhanced from          
+₹ 12.00 billion to more than 
+₹ 18.00 billion
+• Continuing initiatives to create 
+awareness & capacity building 
+of employees in areas of ESG
+Being responsible and 
+transparent in business
+• Board maintains regular oversight 
+on ESG and climate risk related 
+developments, including action 
+plan to achieve carbon neutrality 
+by 2032
+• Digital tool implemented for robust 
+ESG data management, enable 
+calculation of emissions monitoring 
+of targets and reporting
+Thank you
+Additional financial information
+38
+Yield, cost and margin
+1. Annualised on the basis of ‘number of months’ effective from Q1-2026 (‘number of days’ for previous periods)
+2. Impact of interest on tax refund was nil in Q2-2026 compared to 7 bps in Q1-2026 and nil in Q2-2025
+39
+slide 9
+Movement in yield, costs & 
+margins (Percent) FY2025 Q2-2025 H1-2025 Q1-20261 Q2-20261 H1-20261
+Yield on total interest-earning 
+assets 8.69 8.63 8.66 8.61 8.34 8.47
+- Yield on advances 9.76 9.73 9.76 9.53 9.29 9.41
+Cost of funds 5.10 5.09 5.07 5.02 4.78 4.90
+- Cost of deposits 4.91 4.88 4.87 4.85 4.64 4.75
+Net interest margin 4.32 4.272 4.31 4.342 4.302 4.32
+- Domestic 4.40 4.34 4.39 4.40 4.37 4.39
+- Overseas 1.21 1.22 1.27 0.95 0.98 0.96
+Consolidated profit & loss statement (1/2)
+40
+(₹ billion) FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+Q2-o-Q2
+growth 
+Net interest income 973.04 241.00 475.60 259.90 261.63 521.53 8.6%
+Non-interest income 1,082.55 266.17 493.05 254.96 279.66 534.62 5.1%
+- Fee income 322.25 80.80 156.33 79.94 86.60 166.54 7.2%
+- Premium income 709.01 167.79 303.46 147.36 184.33 331.69 9.9%
+- Other income 51.29 17.58 33.26 27.66 8.73 36.39 (50.3%)
+Total income 2,055.59 507.17 968.65 514.86 541.29 1,056.15 6.7%
+Operating expenses 1,278.00 308.39 589.10 301.69 341.55 643.24 10.8%
+Operating profit 777.59 198.78 379.55 213.17 199.74 412.91 0.5%
+Consolidated profit & loss statement (2/2)
+41
+(₹ billion) FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+Q2-o-Q2
+growth 
+Operating profit 777.59 198.78 379.55 213.17 199.74 412.91 0.5%
+Provisions 49.06 13.82 26.98 18.22 9.10 27.32 (34.2%)
+Profit before tax 728.53 184.96 352.57 194.95 190.64 385.59 3.1%
+Tax 184.35 46.35 89.90 51.01 48.07 99.08 3.7%
+Share in profit of 
+associates 1.51 0.45 1.02 0.63 0.61 1.24 35.6%
+Minority interest 35.40 9.58 17.25 8.99 9.61 18.60 0.3%
+Profit after tax 510.29 129.48 246.44 135.58 133.57 269.15 3.2%
+Key ratios (consolidated)
+42
+slide 9
+Percent FY2025 Q2-
+2025
+H1-
+2025
+Q1-
+2026
+Q2-
+2026
+H1-
+2026
+Return on equity 18.0 18.6 18.2 16.9 16.1 16.5
+Weighted average EPS (₹) 72.4 73.6 70.1 76.1 74.8 75.5
+Book value (₹) 429 393 393 450 458 458
+Balance sheet: liabilities
+(₹ billion) Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+Net worth 2,595.40 3,063.21 3,114.42
+- Equity capital 14.09 14.27 14.29
+- Reserves 2,581.31 3,048.94 3,100.13
+Deposits 14,977.61 16,085.17 16,128.25
+- Current 1,830.90 2,169.71 2,067.47
+- Savings 4,256.33 4,458.42 4,521.24
+- Term 8,890.38 9,457.04 9,539.54
+Borrowings 1,244.93 1,170.95 1,118.18
+Other liabilities 950.64 919.06 1,001.86
+Total liabilities 19,768.58 21,238.39 21,362.71
+• Credit/deposit ratio of 86.3% on the domestic balance sheet at Sep 30, 2025 
+(Jun 30, 2025: 83.8%; Sep 30, 2024: 83.9%)
+43
+Composition of borrowings
+(₹ billion) Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+Domestic 985.70 946.67 888.11
+- Capital instruments 28.71 29.64 15.00
+- Other borrowings 957.00 917.03 873.11
+- Long term infrastructure bonds 440.30 417.69 417.69
+- Refinance 390.96 389.23 350.05
+Overseas borrowings2 259.23 224.28 230.07
+Total borrowings 1,244.93 1,170.95 1,118.18
+44
+slide 12
+Consolidated balance sheet
+(₹ billion) Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+Cash & bank balances 1,643.85 1,968.21 1,675.68 
+Investments 8,747.60 9,058.84 8,997.98 
+Advances 13,600.46 14,455.93 14,921.61 
+Fixed & other assets 1,173.21 1,203.38 1,269.58 
+Total assets 25,165.12 26,686.36 26,864.85 
+Net worth 2,800.87 3,296.15 3,355.53 
+Minority interest 155.86 158.14 162.38 
+Deposits 15,295.14 16,411.37 16,458.65 
+Borrowings 2,197.61 2,151.49 2,152.40 
+Liabilities on policies in force 3,066.79 3,081.20 3,049.90 
+Other liabilities 1,648.85 1,588.01 1,685.99 
+Total liabilities 25,165.12 26,686.36 26,864.85 
+45
+slide 12
+Branch and ATM network
+Branches Mar 31, 
+2022
+Mar 31, 
+2023
+Mar 31, 
+2024
+Mar 31, 
+2025
+Jun 30, 
+2025
+Sep 30, 
+2025
+% share at 
+Sep 30, 2025
+Metro 1,567 1,709 1,907 2,079 2,121 2,225 30.7%
+Urban 1,074 1,160 1,310 1,422 1,443 1,472 20.3%
+Semi urban 1,599 1,712 1,838 1,905 1,914 1,932 26.7%
+Rural 1,178 1,319 1,468 1,577 1,588 1,617 22.3%
+Total branches 5,418 5,900 6,523 6,983 7,066 7,246 100.0%
+Total ATMs and 
+CRMs1 16,609 16,650 17,190 16,285 13,376 10,610 -
+46
+slide 12
+1. Cash Recycling Machines
+Balance sheet: assets
+(₹ billion) Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+Cash & bank balances 1,367.99 1,645.98 1,366.81
+Investments 4,790.98 5,077.07 4,995.92
+- SLR investments 3,916.77 3,920.27 3,984.72
+- Equity investment in subsidiaries 121.41 191.46 191.72
+Advances 12,772.40 13,641.57 14,084.56
+Fixed & other assets 837.21 873.77 915.42
+- RIDF1 and related 177.96 127.93 122.74
+Total assets 19,768.58 21,238.39 21,362.71
+47
+1. Rural Infrastructure Development Fund
+Equity investment in subsidiaries 
+48slide 14
+(₹ billion) Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+ICICI Prudential Life Insurance 32.75 32.75 32.75
+ICICI Lombard General Insurance 46.50 46.50 46.50
+ICICI Bank Canada 9.96 9.96 9.96
+ICICI Bank UK 9.70 9.70 9.70
+ICICI Home Finance 18.62 18.62 18.62
+ICICI Securities Limited 1.22 71.27 71.33
+ICICI Securities Primary Dealership 1.58 1.58 1.58
+ICICI AMC 0.61 0.61 0.61
+ICICI Venture Funds Mgmt 0.05 0.05 0.05
+I-Process Services 0.13 0.13 0.13
+Others 0.29 0.29 0.49
+Total 121.41 191.46 191.72
+Portfolio composition
+Sep 30, 2024 Jun 30, 2025 Sep 30, 2025
+Domestic 94.5% 95.2% 95.4%
+International 5.5% 4.8% 4.6%
+Total consolidated advances (₹ billion) 13,600 14,456 14,922
+49
+slide 14
+Retail and rural NPAs
+50
+slide 17
+₹ in billion Sep 30, 
+2024
+Jun 30, 
+2025
+Sep 30, 
+2025
+Gross retail and rural NPAs 127.39 132.96 127.34
+- as a % of gross advances 1.63% 1.65% 1.54%
+Net retail and rural NPAs 43.42 43.58 41.37
+- as a % of net advances 0.56% 0.55% 0.51%
+Sector-wise exposures 
+Top 10 sectors1,2: % of total 
+exposure of the Bank
+Mar 31, 
+2022
+Mar 31, 
+2023
+Mar 31, 
+2024
+Mar 31, 
+2025
+Jun 30, 
+2025
+Sep 30, 
+2025
+Retail finance 35.9% 37.9% 39.1% 37.4% 37.3% 37.9%
+Services – finance 9.1% 8.9% 8.1% 8.1% 7.8% 7.5%
+Wholesale/retail trade 4.2% 5.1% 5.8% 6.5% 6.5% 7.0%
+Services - non finance 3.1% 3.4% 3.7% 4.4% 4.3% 4.5%
+Banks 7.9% 6.0% 4.5% 4.9% 5.2% 4.2%
+Electronics & engineering 4.3% 4.0% 4.0% 4.4% 3.7% 3.9%
+Rural 4.7% 4.5% 4.6% 4.2% 3.6% 3.5%
+Construction 2.4% 2.4% 2.4% 2.7% 3.3% 3.3%
+Road, port, telecom, urban 
+development & other infra
+3.2% 3.0% 3.0% 3.2% 3.2% 3.2%
+of which: Telecom 1.4% 1.4% 1.3% 1.1% 1.0% 1.0%
+Real estate 2.2% 2.4% 2.5% 2.6% 2.8% 2.9%
+Crude petroleum/refining & 
+petrochemicals
+4.1% 3.8% 3.5% 2.8% 2.7% 2.7%
+Total (₹ billion) 16,648 20,245 23,840 27,005 27,640 27,960
+1. Top 10 based on position at Sep 30, 2025
+2. Previous period numbers have been re-classified 51
+slide 26
+Consolidated capital adequacy
+Basel III (%) Jun 30, 
+20251
+Sep 30, 
+20252
+Total capital 16.14% 15.57%
+- Tier I 15.49% 14.94%
+- of which: CET 1 15.49% 14.94%
+- Tier II 0.65% 0.63%
+1. Excluding profits for Q1-2026
+2. Excluding profits for H1-2026
+52
+slide 31
+• Including profits for H1-2026, CET 1 ratio was 16.12%, Tier I ratio was 16.12% 
+and total capital adequacy ratio was 16.75% at Sep 30, 2025
+Insurance entities
+ICICI Life (₹ billion) FY2025 Q2-2025 Q1-2026 Q2-2026
+Annualised premium equivalent 104.07 25.04 18.64 24.21
+- Of which: protection 16.38 4.21 4.09 4.19
+Assets under management 3,093.59 3,204.91 3,244.89 3,214.94
+Cost1/Total premium 18.1% 20.5% 21.2% 17.7%
+1. Total cost including commission and excluding interest on sub-debt
+2. With effect from October 1, 2024, long-term products are accounted on 1/n basis, as mandated by IRDAI, hence Q2-2026 
+numbers are not fully comparable with prior periods
+3. Excluding the impact of CAT losses of ₹ 0.94 billion in Q2-2025 and ₹ 0.73 billion in Q2-2026, the combined ratio was 
+102.6%and 103.8%respectively
+4. Annualised for all interim periods
+ICICI General2 (₹ billion) FY2025 Q2-2025 Q1-2026 Q2-2026
+Gross written premium 282.58 69.48 80.53 70.59
+Combined ratio 102.8% 104.5%
+3
+102.9% 105.1%3
+Return on average equity4 19.1% 21.8% 20.5% 21.4%
+53
+ICICI Bank UK
+(USD million) FY2025 Q2-2025 H1-2025 Q1-2026 Q2-2026 H1-2026
+Net interest income 65.9 16.3 32.5 17.0 17.0 34.0
+Operating profit 35.3 10.5 19.6 8.2 6.7 14.9
+Loans and advances 1,148.8 1,228.4 1,228.4 1,167.5 1,190.4 1,190.4
+Deposits 1,886.7 1,752.8 1,752.8 2,045.1 1,881.6 1,881.6
+- Retail term deposits 558.5 747.4 747.4 502.1 486.8 486.8
+Capital adequacy ratio 22.6% 22.2% 22.2% 21.8% 22.4% 22.4%
+- Tier I 19.6% 19.2% 19.2% 18.9% 19.4% 19.4%
+Net impaired loans 2.3 11.4 11.4 -
+1
+-
+1
+-
+1
+54
+1. Represents insignificant number
+ICICI Bank UK1
+Asset profile Liability profile
+Total liabilities: USD 2.38 bnTotal assets: USD 2.38 bn
+55
+1. At Sep 30, 2025
+2. Includes cash & cash equivalents and T Bills
+2
+ICICI Bank Canada
+(CAD million) FY2025 Q2-2025 H1-2025 Q1-2026 Q2-2026 H1-2026
+Net interest income 113.4 29.8 61.0 22.3 20.5 42.8
+Operating profit 95.7 25.9 53.1 11.4 8.6 20.0
+Loans and advances 4,460.9 4,862.7 4,862.7 4,115.4 3,910.5 3,910.5
+- Residential mortgages 2,738.9 3,203.0 3,203.0 2,498.3 2,317.4 2,317.4
+Deposits 2,931.7 2,997.7 2,997.7 2,793.8 2,806.0 2,806.0
+Capital adequacy ratio 18.4% 19.6% 19.6% 19.6% 20.1% 20.1%
+- Tier I 18.0% 19.0% 19.0% 19.1% 19.8% 19.8%
+Net impaired loans 20.5 14.0 14.0 21.8 26.6 26.6
+56
+ICICI Bank Canada1 
+Liability profileAsset profile
+Total liabilities: CAD 4.74 bnTotal assets: CAD 4.74 bn
+57
+1. At Sep 30, 2025
+2. Includes government securities and cash & placements with banks
+3. Insured mortgages include CAD 1,318.1 million of securitised mortgages at Sep 30, 2025 (Jun 30, 2025 : CAD 1,502.6 million )
+4. As per IFRS, proceeds of CAD 1,311.5 million at Sep 30, 2025 (Jun 30, 2025: CAD 1,495.7 million) on securitisation of residential 
+mortgages are considered a part of borrowings
+3
+2
+4
+ICICI Home Finance1
+(₹ billion) Jun 30, 2025 Sep 30, 2025
+Loans and advances 290.31 296.35
+Gross impaired loans (stage 3) 4.77 4.82
+Net impaired loans (stage 3) 3.17 3.22
+Capital adequacy ratio 19.5% 19.6%
+1. As per Ind AS
+58
+slide 33

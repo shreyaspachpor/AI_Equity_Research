@@ -29,7 +29,7 @@ class IngestedDoc:
     filename: str
     fmt: str                       # 'pdf' | 'csv' | 'txt'
     text: str                      # best-effort plain text (may be empty for scanned PDFs)
-    pdf_bytes: Optional[bytes] = None   # present only for PDFs, for native-vision fallback
+    pdf_bytes: Optional[bytes] = None   
 
     @property
     def has_usable_text(self) -> bool:

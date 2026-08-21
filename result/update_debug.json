@@ -1,0 +1,594 @@
+{
+  "mcp_agent_messages": [
+    {
+      "role": "user",
+      "content": "You are an expert equity research agent verifying facts for the company. \nA material conflict was detected between the user's claims and our generated report data.\n\nCurrent Report Data Context:\n{\n  \"company_name\": \"ICICI Bank Limited\",\n  \"sector\": \"Finance / Regional Banks\",\n  \"report_date\": \"October 18, 2025\",\n  \"rating\": \"\",\n  \"target_price\": \"\",\n  \"current_price\": \"\",\n  \"upside\": \"\",\n  \"thesis\": \"\",\n  \"description\": \"ICICI Bank Ltd. provides a range of banking and financial services, including retail banking, corporate banking, and treasury operations. It operates through segments such as Retail Banking, Wholesale Banking, Treasury, and others, including life insurance and asset management. The bank is headquartered in Mumbai, India, and was founded in 1955.\",\n  \"highlights\": [\n    \"Profit before tax excluding treasury grew by 9.1% y-o-y to \\u20b9161.64 bn in Q2-2026.\",\n    \"Core operating profit grew by 6.5% y-o-y to \\u20b9170.78 bn in Q2-2026.\",\n    \"Profit after tax grew by 5.2% y-o-y to \\u20b9123.59 bn in Q2-2026.\",\n    \"Average deposits grew by 9.1% y-o-y and 1.6% q-o-q in Q2-2026.\",\n    \"Domestic loans grew by 10.6% y-o-y and 3.3% q-o-q.\"\n  ],\n  \"key_highlights\": [\n    \"Net additions to gross NPAs were \\u20b913.86 bn in Q2-2026, down from \\u20b930.34 bn in Q1-2026.\",\n    \"Provisions decreased to \\u20b99.14 bn in Q2-2026 from \\u20b918.15 bn in Q1-2026.\",\n    \"Net NPA ratio improved to 0.39% at Sep 30, 2025.\",\n    \"Common Equity Tier 1 ratio was 16.35% at Sep 30, 2025.\",\n    \"Total capital adequacy ratio stood at 17.00% at Sep 30, 2025.\"\n  ],\n  \"company_data\": [\n    {\n      \"label\": \"Market Cap\",\n      \"value\": \"\\u20b910,059,710.04 cr\"\n    },\n    {\n      \"label\": \"Shares Outstanding\",\n      \"value\": \"7,176,280,000\"\n    },\n    {\n      \"label\": \"P/E Ratio (TTM)\",\n      \"value\": \"18.12\"\n    },\n    {\n      \"label\": \"EPS (TTM)\",\n      \"value\": \"\\u20b978.39\"\n    },\n    {\n      \"label\": \"Dividend Yield\",\n      \"value\": \"0.85%\"\n    },\n    {\n      \"label\": \"52-Week High\",\n      \"value\": \"\\u20b91500.00\"\n    }\n  ],\n  \"shareholding\": null,\n  \"price_performance\": null,\n  \"estimates\": null,\n  \"financials\": [\n    {\n      \"title\": \"Profit & Loss (\\u20b9 billion)\",\n      \"columns\": [\n        \"FY2025\",\n        \"Q2-2025\",\n        \"H1-2025\",\n        \"Q1-2026\",\n        \"Q2-2026\",\n        \"H1-2026\"\n      ],\n      \"rows\": [\n        {\n          \"label\": \"Net interest income\",\n          \"cells\": [\n            \"811.65\",\n            \"200.48\",\n            \"396.01\",\n            \"216.35\",\n            \"215.29\",\n            \"431.64\"\n          ]\n        },\n        {\n          \"label\": \"Non-interest income\",\n          \"cells\": [\n            \"266.03\",\n            \"64.96\",\n            \"128.85\",\n            \"72.64\",\n            \"73.56\",\n            \"146.20\"\n          ]\n        },\n        {\n          \"label\": \"Core operating profit\",\n          \"cells\": [\n            \"653.96\",\n            \"160.43\",\n            \"314.55\",\n            \"175.05\",\n            \"170.78\",\n            \"345.83\"\n          ]\n        },\n        {\n          \"label\": \"Provisions\",\n          \"cells\": [\n            \"46.83\",\n            \"12.33\",\n            \"25.65\",\n            \"18.15\",\n            \"9.14\",\n            \"27.29\"\n          ]\n        },\n        {\n          \"label\": \"Profit before tax\",\n          \"cells\": [\n            \"626.16\",\n            \"154.90\",\n            \"301.83\",\n            \"169.31\",\n            \"163.84\",\n            \"333.15\"\n          ]\n        },\n        {\n          \"label\": \"Profit after tax\",\n          \"cells\": [\n            \"472.27\",\n            \"117.46\",\n            \"228.05\",\n            \"127.68\",\n            \"123.59\",\n            \"251.27\"\n          ]\n        }\n      ]\n    },\n    {\n      \"title\": \"Balance Sheet (\\u20b9 billion)\",\n      \"columns\": [\n        \"Sep 30, 2024\",\n        \"Jun 30, 2025\",\n        \"Sep 30, 2025\"\n      ],\n      \"rows\": [\n        {\n          \"label\": \"Net worth\",\n          \"cells\": [\n            \"2,595.40\",\n            \"3,063.21\",\n            \"3,114.42\"\n          ]\n        },\n        {\n          \"label\": \"Deposits\",\n          \"cells\": [\n            \"14,977.61\",\n            \"16,085.17\",\n            \"16,128.25\"\n          ]\n        },\n        {\n          \"label\": \"Borrowings\",\n          \"cells\": [\n            \"1,244.93\",\n            \"1,170.95\",\n            \"1,118.18\"\n          ]\n        },\n        {\n          \"label\": \"Total liabilities\",\n          \"cells\": [\n            \"19,768.58\",\n            \"21,238.39\",\n            \"21,362.71\"\n          ]\n        }\n      ]\n    },\n    {\n      \"title\": \"Key Ratios\",\n      \"columns\": [\n        \"FY2025\",\n        \"Q2-2025\",\n        \"H1-2025\",\n        \"Q1-2026\",\n        \"Q2-2026\",\n        \"H1-2026\"\n      ],\n      \"rows\": [\n        {\n          \"label\": \"Net interest margin\",\n          \"cells\": [\n            \"4.32\",\n            \"4.27\",\n            \"4.31\",\n            \"4.34\",\n            \"4.30\",\n            \"4.32\"\n          ]\n        },\n        {\n          \"label\": \"Cost of deposits\",\n          \"cells\": [\n            \"4.91\",\n            \"4.88\",\n            \"4.87\",\n            \"4.85\",\n            \"4.64\",\n            \"4.75\"\n          ]\n        },\n        {\n          \"label\": \"Return on average assets\",\n          \"cells\": [\n            \"2.40\",\n            \"2.39\",\n            \"2.38\",\n            \"2.44\",\n            \"2.33\",\n            \"2.38\"\n          ]\n        },\n        {\n          \"label\": \"Standalone return on equity\",\n          \"cells\": [\n            \"17.9\",\n            \"18.1\",\n            \"18.1\",\n            \"17.1\",\n            \"16.0\",\n            \"16.6\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"charts\": [\n    {\n      \"title\": \"Revenue Trend\",\n      \"kind\": \"bar\",\n      \"x\": [\n        \"FY2025\",\n        \"Q2-2025\",\n        \"H1-2025\",\n        \"Q1-2026\",\n        \"Q2-2026\",\n        \"H1-2026\"\n      ],\n      \"series\": [\n        {\n          \"name\": \"Net interest income\",\n          \"y\": [\n            811.65,\n            200.48,\n            396.01,\n            216.35,\n            215.29,\n            431.64\n          ]\n        },\n        {\n          \"name\": \"Non-interest income\",\n          \"y\": [\n            266.03,\n            64.96,\n            128.85,\n            72.64,\n            73.56,\n            146.2\n          ]\n        }\n      ],\n      \"y_label\": \"\\u20b9 billion\"\n    },\n    {\n      \"title\": \"Profit After Tax Trend\",\n      \"kind\": \"line\",\n      \"x\": [\n        \"FY2025\",\n        \"Q2-2025\",\n        \"H1-2025\",\n        \"Q1-2026\",\n        \"Q2-2026\",\n        \"H1-2026\"\n      ],\n      \"series\": [\n        {\n          \"name\": \"Profit after tax\",\n          \"y\": [\n            472.27,\n            117.46,\n            228.05,\n            127.68,\n            123.59,\n            251.27\n          ]\n        }\n      ],\n      \"y_label\": \"\\u20b9 billion\"\n    }\n  ],\n  \"recommendation_history\": [],\n  \"analyst_name\": \"\",\n  \"disclaimer\": \"\"\n}\n\nDetected Conflicts to Verify:\n[\n  \"Profit after tax (PAT) for Q2-2025: report states \\u20b9117.46 bn (P&L table and PAT trend chart), but the update claims \\u20b9500 bn.\",\n  \"Internal inconsistency in the update: a claimed Q2-2025 PAT of \\u20b9500 bn exceeds the entire FY2025 full-year PAT of \\u20b9472.27 bn, making the figure implausible against the report's own historicals.\",\n  \"Downstream consistency break: if Q2-2025 PAT were changed to \\u20b9500 bn, H1-2025 PAT (\\u20b9228.05 bn) and FY2025 PAT (\\u20b9472.27 bn) would no longer reconcile.\"\n]\n\nYou have access to the Bull AI MCP which allows you to search company documents and financials for the company.\nYour task is to call the necessary tools to retrieve grounded evidence to verify which claim is correct.\nAlways start by searching for the company to get the correct identifier.\nWhen you are done, return a final text summary of your verification findings and whether the user's claim or the report is correct.\n"
+    },
+    {
+      "content": "I'll verify this conflict about ICICI Bank's Q2-2025 profit after tax. Let me start by searching for the company to get the correct identifier.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"limit\":5,\"query\":\"ICICI Bank\"}",
+            "name": "search_companies"
+          },
+          "id": "e877c2be-c8aa-401a-8d49-518b5ab039c3",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "The task is to verify a conflict about ICICI Bank's Q2-2025 profit after tax (PAT). The report states ₹117.46 bn for Q2-2025, but the user's claim says ₹500 bn. I need to:\n\n1. Search for the company to get the correct identifier\n2. Retrieve grounded evidence from company documents to verify which claim is correct\n\nLet me start by searching for ICICI Bank.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "The task is to verify a conflict about ICICI Bank's Q2-2025 profit after tax (PAT). The report states ₹117.46 bn for Q2-2025, but the user's claim says ₹500 bn. I need to:\n\n1. Search for the company to get the correct identifier\n2. Retrieve grounded evidence from company documents to verify which claim is correct\n\nLet me start by searching for ICICI Bank.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "The task is to verify a conflict about ICICI Bank's Q2-2025 profit after tax (PAT). The report states ₹117.46 bn for Q2-2025, but the user's claim says ₹500 bn. I need to:\n\n1. Search for the company to get the correct identifier\n2. Retrieve grounded evidence from company documents to verify which claim is correct\n\nLet me start by searching for ICICI Bank."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "e877c2be-c8aa-401a-8d49-518b5ab039c3",
+      "content": "Company search results for ICICI Bank\n\nUse `identifier` with the NSE code, BSE code, or ISIN below for follow-up MCP tools.\n\n1. ICICI Bank (NSE)\n- Identifiers: NSE: ICICIBANK | BSE: 532174 | ISIN: INE090A01021 | symbol: ICICIBANK\n- Category: Banking\n\n2. Indian Bank (NSE)\n- Identifiers: NSE: INDIANB | BSE: 532814 | ISIN: INE562A01011 | symbol: INDIANB\n- Category: Banking\n\n3. Bank Of Baroda (NSE)\n- Identifiers: NSE: BANKBARODA | BSE: 532134 | ISIN: INE028A01039 | symbol: BANKBARODA\n- Category: Banking\n\n4. PNB (NSE)\n- Identifiers: NSE: PNB | BSE: 532461 | ISIN: INE160A01022 | symbol: PNB\n- Category: Banking\n\n5. Union Bank Of India (NSE)\n- Identifiers: NSE: UNIONBANK | BSE: 532477 | ISIN: INE692A01016 | symbol: UNIONBANK\n- Category: Banking\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "content": "I found ICICI Bank (NSE: ICICIBANK). Now let me search company documents for evidence on the Q2-2025 (quarter ended September 30, 2024) profit after tax figure.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"limit\":8,\"query\":\"profit after tax quarter ended September 30, 2024\"}",
+            "name": "search_company_documents"
+          },
+          "id": "401d15d3-c182-4f9a-9d39-041e8181baa7",
+          "type": "function"
+        },
+        {
+          "index": 1,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"limit\":8,\"query\":\"profit after tax FY2025 full year results\"}",
+            "name": "search_company_documents"
+          },
+          "id": "c7161882-8f5b-4b07-b887-5aa765fb8b3b",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "I found ICICI Bank with NSE: ICICIBANK. Now I need to verify the Q2-2025 PAT figure. The report claims ₹117.46 bn for Q2-2025, while the user claims ₹500 bn.\n\nLet me search company documents for the Q2-2025 PAT figure. I'll search for the profit after tax in Q2-2025 (quarter ended September 30, 2024). Let me also check the FY2025 annual report data.\n\nI'll do two searches in parallel:\n1. Search for Q2-2025 PAT (quarter ended September 30, 2024)\n2. Search for FY2025 PAT",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I found ICICI Bank with NSE: ICICIBANK. Now I need to verify the Q2-2025 PAT figure. The report claims ₹117.46 bn for Q2-2025, while the user claims ₹500 bn.\n\nLet me search company documents for the Q2-2025 PAT figure. I'll search for the profit after tax in Q2-2025 (quarter ended September 30, 2024). Let me also check the FY2025 annual report data.\n\nI'll do two searches in parallel:\n1. Search for Q2-2025 PAT (quarter ended September 30, 2024)\n2. Search for FY2025 PAT",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "I found ICICI Bank with NSE: ICICIBANK. Now I need to verify the Q2-2025 PAT figure. The report claims ₹117.46 bn for Q2-2025, while the user claims ₹500 bn.\n\nLet me search company documents for the Q2-2025 PAT figure. I'll search for the profit after tax in Q2-2025 (quarter ended September 30, 2024). Let me also check the FY2025 annual report data.\n\nI'll do two searches in parallel:\n1. Search for Q2-2025 PAT (quarter ended September 30, 2024)\n2. Search for FY2025 PAT"
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "401d15d3-c182-4f9a-9d39-041e8181baa7",
+      "content": "Document search results for profit after tax quarter ended September 30, 2024\n\nCitation rule: link only the Source label below (format: `[<citation>](<document_url>)`). Do not make the excerpt, quotation, or claim text the link label. Present evidence as bullets under the source.\n\nPeriod guidance: Indian fiscal years run Apr-Mar. FY2026 means Apr 1 2025-Mar 31 2026. Quarter table: Q1 Apr-Jun, Q2 Jul-Sep, Q3 Oct-Dec, Q4 Jan-Mar. Before calling search_company_documents, call list_document_availability to inspect the company's document inventory by type, fiscal_year, and quarter. Use the latest available period documents whenever possible. For 'latest' or 'most recent' concall/transcript/document requests, do not over-constrain with fiscal_year or quarter unless the user explicitly named that period; prefer a focused query and use the returned citation/fiscal fields. If a filtered search returns no results, retry once without fiscal_year/quarter filters. Today is 2026-08-21 in India; the current Indian fiscal period is FY2027 Q2. Annual reports can lag the current fiscal year, so check inventory before forcing a current FY annual-report filter.\n\n1. Source: [Investor Presentation, FY2027, Q1, Page 11](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.78822047\n- Excerpt: # Standalone segment-wise PBT | Profit before tax (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | |-------------------------------|----------|---------|---------|---------|----------| | Retail | 216.21 | 64.93 | 52.63 | 69.27 | 232.44 | | Wholesale | 215.64 | 55.51 | 63.05 | 70.37 | 244.89 | | Treasury | 187.61 | 44.66 | 30.86 | 37.42 | 172.30 | | Others | 6.70 | 2.63 | 1.46 | 3.97 | 12.56 | | Total | 626.16 | 167.73 | 148.00 | 181.03 | 662.19 |\n\n2. Source: [Investor Presentation, FY2027, Q1, Page 43](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.78410095\n- Excerpt: # Consolidated profit & loss statement (2/2) | (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 growth | FY-o-FY growth | |-------------|--------|---------|---------|---------|--------|---------------|---------------| | Operating profit | 777.59 | 200.53 | 204.00 | 210.05 | 826.96 | 4.7% | 6.3% | | Provisions | 49.06 | 9.41 | 26.46 | 2.61 | 56.39 | (72.3%) | 14.9% | | Profit before tax | 728.53 | 191.12 | 177.54 | 207.44 | 770.57 | 8.5% | 5.8% | | Tax | 184.35 | 47.89 | 43.43 | 51.32 | 193.83 | 7.2% | 5.1% | | Share in profit of associates | 1.51 | 0.30 | 0.70 | 0.69 | 2.63 | - | 74.2% | | Minority interest | 35.40 | 8.51 | 9.43 | 9.26 | 37.29 | 8.8% | 5.3% | | Profit a...\n\n3. Source: [Investor Presentation, FY2027, Q1, Page 9](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.7837429\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 (%) | FY-o-FY (%) | |--------------|--------|---------|---------|---------|--------|-------------|-------------| | Core operating profit | 653.96 | 174.25 | 175.13 | 183.05 | 704.01 | 5.1% | 7.7% | | Provisions | 46.83 | 8.91 | 25.56¹ | 0.96 | 53.80¹ | (89.2)% | 14.9% | | Profit before tax excluding treasury | 607.13 | 165.34 | 149.57 | 182.09 | 650.21 | 10.1% | 7.1% | | Treasury income | 19.03 | 2.39 | (1.57) | (1.06) | 11.98 | - | (37.0)% | | Profit before tax | 626.16 | 167.73 | 148.00 | 181.03 | 662.19 | 7.9% | 5.8% | | Tax | 153.89 | 41.43 | 34.82 | 44.01 | 160.72 | 6.2% | 4.4% | | Pro...\n\n4. Source: [Investor Presentation, FY2027, Q1, Page 13](https://docs.bull-ai.in/d/UF677x)\n- Score: 0.78248113\n- Excerpt: # Profit & loss statement | (¥ billion) | FY2024 | FY2025 | FY2026 | Q1-2026 | Q1-2027 | Q1-o-Q1 growth % | |---|---|---|---|---|---|---| | Net interest income | 743.06 | 811.65 | 880.75 | 216.35 | 243.84 | 12.7% | | Non-interest income | 229.58 | 285.07 | 307.58 | 85.05 | 85.76 | 0.8% | | Core operating income | 972.64 | 1,096.72 | 1,188.33 | 301.40 | 329.60 | 9.4% | | Non-interest expenses | 391.33 | 423.72 | 472.34 | 113.94 | 125.74 | 10.4% | | Operating profit before provisions | 581.31 | 672.99 | 715.99 | 187.46 | 203.86 | 8.7% | | Provisions and contingencies | 36.43 | 46.83 | 53.80 | 18.15 | 12.60 | (30.6)% | | Profit before tax | 544.88 | 626.16 | 662.19 | 169.31 | 191.26 | 13.0% |...\n\n5. Source: [Investor Presentation, FY2026, Q4, Page 10](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.7834093\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 (%) | |--------------------------------------|---------|---------|---------|---------|---------|---------|--------------| | **Core operating profit** | 653.96 | 165.16 | 479.71 | 170.78 | 175.13 | 520.96 | 6.0% | | Provisions | 46.83 | 12.27 | 37.92 | 9.14 | 25.56¹ | 52.84¹ | - | | **Profit before tax excluding treasury** | 607.13 | 152.89 | 441.79 | 161.64 | 149.57 | 468.12 | (2.2)% | | Treasury income | 19.03 | 3.71 | 16.64 | 2.20 | (1.57) | 13.04 | - | | **Profit before tax** | 626.16 | 156.60 | 458.43 | 163.84 | 148.00 | 481.16 | (5.5)% | | Tax | 153.89 | 38.68 | 112.46 | 40....\n\n6. Source: [Investor Presentation, FY2026, Q3, Page 10](https://docs.bull-ai.in/d/uODnrL)\n- Score: 0.7834269\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 (%) | |--------------------------------------|---------|---------|---------|---------|---------|---------|--------------| | **Core operating profit** | 653.96 | 165.16 | 479.71 | 170.78 | 175.13 | 520.96 | 6.0% | | Provisions | 46.83 | 12.27 | 37.92 | 9.14 | 25.56¹ | 52.84¹ | - | | **Profit before tax excluding treasury** | 607.13 | 152.89 | 441.79 | 161.64 | 149.57 | 468.12 | (2.2)% | | Treasury income | 19.03 | 3.71 | 16.64 | 2.20 | (1.57) | 13.04 | - | | **Profit before tax** | 626.16 | 156.60 | 458.43 | 163.84 | 148.00 | 481.16 | (5.5)% | | Tax | 153.89 | 38.68 | 112.46 | 40....\n\n7. Source: [Investor Presentation, FY2026, Q2, Page 9](https://docs.bull-ai.in/d/VFFMRK)\n- Score: 0.78779554\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q2-2025 | H1-2025 | Q1-2026 | Q2-2026 | H1-2026 | Q2-o-Q (%) | |--------------|--------|---------|---------|---------|---------|---------|-------------| | **Core operating profit** | 653.96 | 160.43 | 314.55 | 175.05 | 170.78 | 345.83 | 6.5% | | Provisions | 46.83 | 12.33 | 25.65 | 18.15 | 9.14 | 27.29 | (25.9%) | | **Profit before tax excluding treasury** | 607.13 | 148.10 | 288.90 | 156.90 | 161.64 | 318.54 | 9.1% | | Treasury income | 19.03 | 6.80 | 12.93 | 12.41 | 2.20 | 14.61 | (67.6%) | | **Profit before tax** | 626.16 | 154.90 | 301.83 | 169.31 | 163.84 | 333.15 | 5.8% | | Tax | 153.89 | 37.44 | 73.78 | 41.63 | 40.25 | 81.88 | 7.5%...\n\n8. Source: [Investor Presentation, FY2026, Q1, Page 9](https://docs.bull-ai.in/d/wNZkqZ)\n- Score: 0.7863951\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q1-2025 | Q4-2025 | Q1-2026 | Q1-o-Q1 (%) | |--------------------------------------|--------|---------|---------|---------|-------------| | **Core operating profit** | 653.96 | 154.12 | 174.25 | 175.05 | 13.6% | | **Provisions** | 46.83 | 13.32¹ | 8.91 | 18.15 | 36.2% | | **Profit before tax excluding treasury** | 607.13 | 140.80 | 165.34 | 156.90 | 11.4% | | **Treasury income** | 19.03 | 6.13 | 2.39 | 12.41 | - | | **Profit before tax** | 626.16 | 146.93 | 167.73 | 169.31 | 15.2% | | **Tax** | 153.89 | 36.34 | 41.43 | 41.63 | 14.6% | | **Profit after tax** | 472.27 | 110.59 | 126.30 | 127.68 | 15.5% | 1. Includes the impact of release o...\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "c7161882-8f5b-4b07-b887-5aa765fb8b3b",
+      "content": "Document search results for profit after tax FY2025 full year results\n\nCitation rule: link only the Source label below (format: `[<citation>](<document_url>)`). Do not make the excerpt, quotation, or claim text the link label. Present evidence as bullets under the source.\n\nPeriod guidance: Indian fiscal years run Apr-Mar. FY2026 means Apr 1 2025-Mar 31 2026. Quarter table: Q1 Apr-Jun, Q2 Jul-Sep, Q3 Oct-Dec, Q4 Jan-Mar. Before calling search_company_documents, call list_document_availability to inspect the company's document inventory by type, fiscal_year, and quarter. Use the latest available period documents whenever possible. For 'latest' or 'most recent' concall/transcript/document requests, do not over-constrain with fiscal_year or quarter unless the user explicitly named that period; prefer a focused query and use the returned citation/fiscal fields. If a filtered search returns no results, retry once without fiscal_year/quarter filters. Today is 2026-08-21 in India; the current Indian fiscal period is FY2027 Q2. Annual reports can lag the current fiscal year, so check inventory before forcing a current FY annual-report filter.\n\n1. Source: [General Updates, FY2027, Q2, Page 5](https://docs.bull-ai.in/d/0rNWi2)\n- Score: 0.79710096\n- Excerpt: # FY2026 performance review (1/5) ## Profit before tax excluding treasury (¥ billion) | Fiscal Year | Profit before tax excluding treasury (¥ billion) | |-------------|--------------------------------------------------| | FY2022 | 297.06 | | FY2023 | 424.73 | | FY2024 | 544.79 | | FY2025 | 607.13 | | FY2026 | 650.21 | ## Profit after tax (¥ billion) | Fiscal Year | Profit after tax (¥ billion) | |-------------|-------------------------------| | FY2022 | 233.39 | | FY2023 | 318.96 | | FY2024 | 408.88 | | FY2025 | 472.27 | | FY2026 | 501.47 | Disciplined execution of our strategy continues to deliver profitable growth\n\n2. Source: [Investor Presentation, FY2027, Q1, Page 43](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.793681\n- Excerpt: # Consolidated profit & loss statement (2/2) | (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 growth | FY-o-FY growth | |-------------|--------|---------|---------|---------|--------|---------------|---------------| | Operating profit | 777.59 | 200.53 | 204.00 | 210.05 | 826.96 | 4.7% | 6.3% | | Provisions | 49.06 | 9.41 | 26.46 | 2.61 | 56.39 | (72.3%) | 14.9% | | Profit before tax | 728.53 | 191.12 | 177.54 | 207.44 | 770.57 | 8.5% | 5.8% | | Tax | 184.35 | 47.89 | 43.43 | 51.32 | 193.83 | 7.2% | 5.1% | | Share in profit of associates | 1.51 | 0.30 | 0.70 | 0.69 | 2.63 | - | 74.2% | | Minority interest | 35.40 | 8.51 | 9.43 | 9.26 | 37.29 | 8.8% | 5.3% | | Profit a...\n\n3. Source: [Investor Presentation, FY2027, Q1, Page 9](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.7847372\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 (%) | FY-o-FY (%) | |--------------|--------|---------|---------|---------|--------|-------------|-------------| | Core operating profit | 653.96 | 174.25 | 175.13 | 183.05 | 704.01 | 5.1% | 7.7% | | Provisions | 46.83 | 8.91 | 25.56¹ | 0.96 | 53.80¹ | (89.2)% | 14.9% | | Profit before tax excluding treasury | 607.13 | 165.34 | 149.57 | 182.09 | 650.21 | 10.1% | 7.1% | | Treasury income | 19.03 | 2.39 | (1.57) | (1.06) | 11.98 | - | (37.0)% | | Profit before tax | 626.16 | 167.73 | 148.00 | 181.03 | 662.19 | 7.9% | 5.8% | | Tax | 153.89 | 41.43 | 34.82 | 44.01 | 160.72 | 6.2% | 4.4% | | Pro...\n\n4. Source: [Investor Presentation, FY2027, Q1, Page 8](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.78030264\n- Excerpt: # Profit & loss statement | (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 (%) | FY-o-FY (%) | |--------------------------------------------------|----------|---------|---------|---------|----------|-------------|------------| | Net interest income¹ | 811.65 | 211.93 | 219.32 | 229.79 | 880.75 | 8.4% | 8.5% | | Non-interest income | 266.03 | 70.21 | 75.25 | 74.15 | 295.60 | 5.6% | 11.1% | | - Fee income | 238.70 | 63.06 | 65.72 | 67.79 | 257.42 | 7.5% | 7.8% | | - Dividend income from subsidiaries | 26.19 | 6.75 | 6.81 | 6.31 | 34.58 | (6.5)% | 32.0% | | - Others | 1.14 | 0.40 | 2.72 | 0.05 | 3.60 | (87.5)% | - | | Core operating income | 1,077.68 | 282.14 | 294.57 |...\n\n5. Source: [Investor Presentation, FY2026, Q4, Page 10](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.78290606\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 (%) | |--------------------------------------|---------|---------|---------|---------|---------|---------|--------------| | **Core operating profit** | 653.96 | 165.16 | 479.71 | 170.78 | 175.13 | 520.96 | 6.0% | | Provisions | 46.83 | 12.27 | 37.92 | 9.14 | 25.56¹ | 52.84¹ | - | | **Profit before tax excluding treasury** | 607.13 | 152.89 | 441.79 | 161.64 | 149.57 | 468.12 | (2.2)% | | Treasury income | 19.03 | 3.71 | 16.64 | 2.20 | (1.57) | 13.04 | - | | **Profit before tax** | 626.16 | 156.60 | 458.43 | 163.84 | 148.00 | 481.16 | (5.5)% | | Tax | 153.89 | 38.68 | 112.46 | 40....\n\n6. Source: [Investor Presentation, FY2026, Q4, Page 44](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.78096145\n- Excerpt: # Consolidated profit & loss statement (2/2) | (₹ billion) | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 growth | |---------------------------|---------|---------|---------|---------|---------|---------|----------------| | Operating profit | 777.59 | 197.51 | 577.07 | 199.74 | 204.00 | 616.91 | 3.3% | | Provisions | 49.06 | 12.68 | 39.65 | 9.10 | 26.46 | 53.78 | - | | Profit before tax | 728.53 | 184.83 | 537.42 | 190.64 | 177.54 | 563.13 | (3.9%) | | Tax | 184.35 | 46.54 | 136.46 | 48.07 | 43.43 | 142.51 | (6.7%) | | Share in profit of associates | 1.51 | 0.18 | 1.20 | 0.61 | 0.70 | 1.94 | - | | Minority interest | 35.40 | 9.64 | 26.89 | 9.61 | 9.43 | 28.03 | (2.2%)...\n\n7. Source: [Investor Presentation, FY2026, Q3, Page 44](https://docs.bull-ai.in/d/JwmHcp)\n- Score: 0.7857401\n- Excerpt: # Consolidated profit & loss statement (2/2) | (₹ billion) | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 growth | |-------------|--------|---------|---------|---------|---------|---------|----------------| | Operating profit | 777.59 | 197.51 | 577.07 | 199.74 | 204.00 | 616.91 | 3.3% | | Provisions | 49.06 | 12.68 | 39.65 | 9.10 | 26.46 | 53.78 | - | | Profit before tax | 728.53 | 184.83 | 537.42 | 190.64 | 177.54 | 563.13 | (3.9%) | | Tax | 184.35 | 46.54 | 136.46 | 48.07 | 43.43 | 142.51 | (6.7%) | | Share in profit of associates | 1.51 | 0.18 | 1.20 | 0.61 | 0.70 | 1.94 | - | | Minority interest | 35.40 | 9.64 | 26.89 | 9.61 | 9.43 | 28.03 | (2.2%) | | Profit aft...\n\n8. Source: [Investor Presentation, FY2026, Q3, Page 10](https://docs.bull-ai.in/d/uODnrL)\n- Score: 0.78260255\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 (%) | |--------------------------------------|---------|---------|---------|---------|---------|---------|--------------| | **Core operating profit** | 653.96 | 165.16 | 479.71 | 170.78 | 175.13 | 520.96 | 6.0% | | Provisions | 46.83 | 12.27 | 37.92 | 9.14 | 25.56¹ | 52.84¹ | - | | **Profit before tax excluding treasury** | 607.13 | 152.89 | 441.79 | 161.64 | 149.57 | 468.12 | (2.2)% | | Treasury income | 19.03 | 3.71 | 16.64 | 2.20 | (1.57) | 13.04 | - | | **Profit before tax** | 626.16 | 156.60 | 458.43 | 163.84 | 148.00 | 481.16 | (5.5)% | | Tax | 153.89 | 38.68 | 112.46 | 40....\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "content": "Excellent evidence so far. I can see the FY2026 Q2 investor presentation (which contains the Q2-2025 comparative column) and confirmation that FY2025 full-year PAT was ₹472.27 bn. Notably, FY2026 full-year PAT was ₹501.47 bn — which may be the source of the user's \"₹500 bn\" claim confusion. Let me pull the exact page from the Q2-2026 investor presentation to confirm the Q2-2025 PAT line item directly.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"collection\":\"pdf_content\",\"document_id\":\"VFFMRK\",\"identifier\":\"ICICIBANK\",\"limit\":10,\"page_end\":10,\"page_start\":9}",
+            "name": "get_document_chunks"
+          },
+          "id": "92170da3-b4ca-4039-9639-013887fb7869",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "I found some very useful evidence. The FY2026 Q2 Investor Presentation (document VFFMRK, page 9) shows the P&L statement with Q2-2025 column. Let me get the full page to see the Profit after tax row for Q2-2025.\n\nKey evidence so far:\n1. From the FY2026 Q2 Investor Presentation (Page 9): P&L statement with columns FY2025 | Q2-2025 | H1-2025 | Q1-2026 | Q2-2026 | H1-2026. It shows Core operating profit 160.43 for Q2-2025, Provisions 12.33, PBT excluding treasury 148.10, Treasury income 6.80, PBT 154.90, Tax 37.44... but the excerpt is cut off before showing PAT.\n\n2. From FY2026 Q1 presentation (Page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30, Q1-2026 PAT = 127.68.\n\n3. From General Updates FY2027 Q2 (Page 5): FY2025 PAT = 472.27 bn, FY2026 PAT = 501.47 bn.\n\nInteresting - the user's claim of ₹500 bn might be confused with FY2026 full-year PAT of ₹501.47 bn! That's a plausible source of confusion.\n\nNow I need to confirm the exact Q2-2025 PAT figure. Let me retrieve the document chunks from the FY2026 Q2 investor presentation (VFFMRK) page 9 to see the complete P&L including PAT row.\n\nLet me call get_document_chunks with document_id VFFMRK, page_start 9, page_end 9.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I found some very useful evidence. The FY2026 Q2 Investor Presentation (document VFFMRK, page 9) shows the P&L statement with Q2-2025 column. Let me get the full page to see the Profit after tax row for Q2-2025.\n\nKey evidence so far:\n1. From the FY2026 Q2 Investor Presentation (Page 9): P&L statement with columns FY2025 | Q2-2025 | H1-2025 | Q1-2026 | Q2-2026 | H1-2026. It shows Core operating profit 160.43 for Q2-2025, Provisions 12.33, PBT excluding treasury 148.10, Treasury income 6.80, PBT 154.90, Tax 37.44... but the excerpt is cut off before showing PAT.\n\n2. From FY2026 Q1 presentation (Page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30, Q1-2026 PAT = 127.68.\n\n3. From General Updates FY2027 Q2 (Page 5): FY2025 PAT = 472.27 bn, FY2026 PAT = 501.47 bn.\n\nInteresting - the user's claim of ₹500 bn might be confused with FY2026 full-year PAT of ₹501.47 bn! That's a plausible source of confusion.\n\nNow I need to confirm the exact Q2-2025 PAT figure. Let me retrieve the document chunks from the FY2026 Q2 investor presentation (VFFMRK) page 9 to see the complete P&L including PAT row.\n\nLet me call get_document_chunks with document_id VFFMRK, page_start 9, page_end 9.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "I found some very useful evidence. The FY2026 Q2 Investor Presentation (document VFFMRK, page 9) shows the P&L statement with Q2-2025 column. Let me get the full page to see the Profit after tax row for Q2-2025.\n\nKey evidence so far:\n1. From the FY2026 Q2 Investor Presentation (Page 9): P&L statement with columns FY2025 | Q2-2025 | H1-2025 | Q1-2026 | Q2-2026 | H1-2026. It shows Core operating profit 160.43 for Q2-2025, Provisions 12.33, PBT excluding treasury 148.10, Treasury income 6.80, PBT 154.90, Tax 37.44... but the excerpt is cut off before showing PAT.\n\n2. From FY2026 Q1 presentation (Page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30, Q1-2026 PAT = 127.68.\n\n3. From General Updates FY2027 Q2 (Page 5): FY2025 PAT = 472.27 bn, FY2026 PAT = 501.47 bn.\n\nInteresting - the user's claim of ₹500 bn might be confused with FY2026 full-year PAT of ₹501.47 bn! That's a plausible source of confusion.\n\nNow I need to confirm the exact Q2-2025 PAT figure. Let me retrieve the document chunks from the FY2026 Q2 investor presentation (VFFMRK) page 9 to see the complete P&L including PAT row.\n\nLet me call get_document_chunks with document_id VFFMRK, page_start 9, page_end 9."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "92170da3-b4ca-4039-9639-013887fb7869",
+      "content": "The arguments do not match the public tool contract.\n"
+    },
+    {
+      "content": "Let me adjust the call format to match the tool contract.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"requests\":[{\"collection\": \"pdf_content\", \"document_id\": \"VFFMRK\", \"id\": \"q2fy26-pnl\", \"limit\": 10, \"page_end\": 10, \"page_start\": 9}]}",
+            "name": "get_document_chunks"
+          },
+          "id": "f3c79957-305f-41d2-9cb3-ab468fdd9ef7",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "The arguments don't match. Let me check the schema for get_document_chunks. The parameters are:\n- category\n- collection (enum: pdf_content, annual_reports)\n- document_id (pattern ^[A-Za-z0-9_-]+$)\n- fiscal_year\n- identifier\n- limit\n- page_end\n- page_start\n- quarter\n- requests\n\nHmm, \"VFFMRK\" matches the pattern. Maybe the issue is that I need to use the \"requests\" array format, or maybe collection isn't allowed with document_id? Let me try using the requests array instead.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "The arguments don't match. Let me check the schema for get_document_chunks. The parameters are:\n- category\n- collection (enum: pdf_content, annual_reports)\n- document_id (pattern ^[A-Za-z0-9_-]+$)\n- fiscal_year\n- identifier\n- limit\n- page_end\n- page_start\n- quarter\n- requests\n\nHmm, \"VFFMRK\" matches the pattern. Maybe the issue is that I need to use the \"requests\" array format, or maybe collection isn't allowed with document_id? Let me try using the requests array instead.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "The arguments don't match. Let me check the schema for get_document_chunks. The parameters are:\n- category\n- collection (enum: pdf_content, annual_reports)\n- document_id (pattern ^[A-Za-z0-9_-]+$)\n- fiscal_year\n- identifier\n- limit\n- page_end\n- page_start\n- quarter\n- requests\n\nHmm, \"VFFMRK\" matches the pattern. Maybe the issue is that I need to use the \"requests\" array format, or maybe collection isn't allowed with document_id? Let me try using the requests array instead."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "f3c79957-305f-41d2-9cb3-ab468fdd9ef7",
+      "content": "The arguments do not match the public tool contract.\n"
+    },
+    {
+      "content": null,
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"document_id\":\"VFFMRK\",\"identifier\":\"ICICIBANK\",\"page_end\":10,\"page_start\":9}",
+            "name": "get_document_chunks"
+          },
+          "id": "def29add-42bc-42d3-9440-7de965731e9c",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "Still failing. Let me try simpler arguments - maybe just document_id, identifier, page_start, page_end without collection.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "Still failing. Let me try simpler arguments - maybe just document_id, identifier, page_start, page_end without collection.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "Still failing. Let me try simpler arguments - maybe just document_id, identifier, page_start, page_end without collection."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "def29add-42bc-42d3-9440-7de965731e9c",
+      "content": "The arguments do not match the public tool contract.\n"
+    },
+    {
+      "content": "The direct chunk call isn't matching. Let me check the document inventory to get the proper document ID format.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"fiscal_year\":2026,\"identifier\":\"ICICIBANK\",\"quarter\":2}",
+            "name": "list_document_availability"
+          },
+          "id": "8da5e9f2-dc72-4638-a367-cd5c55827374",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "Still failing. Maybe the document_id needs to be longer or in a different format. The URL was https://docs.bull-ai.in/d/VFFMRK. Perhaps the actual document_id is different. Let me try list_document_availability first to see the document inventory and get proper document IDs.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "Still failing. Maybe the document_id needs to be longer or in a different format. The URL was https://docs.bull-ai.in/d/VFFMRK. Perhaps the actual document_id is different. Let me try list_document_availability first to see the document inventory and get proper document IDs.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "Still failing. Maybe the document_id needs to be longer or in a different format. The URL was https://docs.bull-ai.in/d/VFFMRK. Perhaps the actual document_id is different. Let me try list_document_availability first to see the document inventory and get proper document IDs."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "8da5e9f2-dc72-4638-a367-cd5c55827374",
+      "content": "The tool is temporarily unavailable.\n"
+    },
+    {
+      "content": "The availability tool is temporarily unavailable. Let me retry it.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"fiscal_year\":2026,\"identifier\":\"ICICIBANK\",\"quarter\":2}",
+            "name": "list_document_availability"
+          },
+          "id": "81994e44-0197-4ccb-917d-9b6bb4b46e28",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "The tool is temporarily unavailable. Let me retry.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "The tool is temporarily unavailable. Let me retry.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "The tool is temporarily unavailable. Let me retry."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "81994e44-0197-4ccb-917d-9b6bb4b46e28",
+      "content": "Document availability for ICICI Bank Ltd.\n\nEarnings Call Transcript (concall)\n- FY2026 Q2 | 1 document | latest upload 2025-10-01\n\nInvestor Presentation (investor_presentation)\n- FY2026 Q2 | 3 documents | latest upload 2025-10-18\n\nGeneral (other)\n- FY2026 Q2 | 25 documents | latest upload 2025-09-30\n\nGeneral Updates (other)\n- FY2026 Q2 | 11 documents | latest upload 2025-09-16\n\nCredit Rating (other)\n- FY2026 Q2 | 4 documents | latest upload 2025-08-15\n\nBoard Meeting (other)\n- FY2026 Q2 | 1 document | latest upload 2025-09-20\n\nESOP/ESOS/ESPS (other)\n- FY2026 Q2 | 23 documents | latest upload 2025-09-25\n\nFinancial Results (other)\n- FY2026 Q2 | 1 document | latest upload 2025-10-18\n\nAGM (other)\n- FY2026 Q2 | 2 documents | latest upload 2025-08-30\n\nCertificate under Reg. 74 (5) of SEBI (DP) Regulations, 2018 (other)\n- FY2026 Q2 | 1 document | latest upload 2025-07-07\n\nAllotment of ESOP / ESPS (other)\n- FY2026 Q2 | 23 documents | latest upload 2025-09-25\n\nOutcome of Board Meeting (other)\n- FY2026 Q2 | 3 documents | latest upload 2025-09-19\n\nUse `search_company_documents` with identifier plus one listed `fiscal_year`/`quarter` when you need evidence quotes.\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "content": "The FY2026 Q2 Investor Presentation is confirmed in inventory. Let me try the chunk retrieval again with a minimal request format.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"requests\":[{\"document_id\": \"VFFMRK\", \"page_end\": 10, \"page_start\": 8}]}",
+            "name": "get_document_chunks"
+          },
+          "id": "003eed45-717a-4d4c-bb97-ddf000f4cf29",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "The document inventory confirms the FY2026 Q2 investor presentation exists. The document_id from the search result was \"VFFMRK\" (from URL https://docs.bull-ai.in/d/VFFMRK). The get_document_chunks call failed with \"arguments do not match the public tool contract\". \n\nLet me look at the schema again:\n- category: string\n- collection: enum [\"pdf_content\", \"annual_reports\"]\n- document_id: pattern ^[A-Za-z0-9_-]+$\n- fiscal_year: integer\n- identifier: string\n- limit: integer 1-40\n- page_end: integer\n- page_start: integer\n- quarter: integer\n- requests: array\n\nHmm, maybe the issue is that when using requests, other fields conflict. Or maybe I need to include collection at top level with document_id. Let me try:\n\nget_document_chunks with:\n- identifier: ICICIBANK\n- document_id: VFFMRK\n- collection: pdf_content\n- page_start: 9\n- page_end: 9\n\nWait, I tried that first and it failed. Let me try with different variations. Maybe the issue is the combination of parameters. Perhaps document_id must be used within requests only, or maybe there's a required field I'm missing.\n\nActually, looking more carefully - maybe the problem is that both `requests` AND top-level params can't be mixed, but also maybe standalone requires something else. Let me try just requests without id field:\n\nrequests: [{\"document_id\": \"VFFMRK\", \"page_start\": 9, \"page_end\": 9}]\n\nI tried that with collection and id. Let me try minimal requests.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "The document inventory confirms the FY2026 Q2 investor presentation exists. The document_id from the search result was \"VFFMRK\" (from URL https://docs.bull-ai.in/d/VFFMRK). The get_document_chunks call failed with \"arguments do not match the public tool contract\". \n\nLet me look at the schema again:\n- category: string\n- collection: enum [\"pdf_content\", \"annual_reports\"]\n- document_id: pattern ^[A-Za-z0-9_-]+$\n- fiscal_year: integer\n- identifier: string\n- limit: integer 1-40\n- page_end: integer\n- page_start: integer\n- quarter: integer\n- requests: array\n\nHmm, maybe the issue is that when using requests, other fields conflict. Or maybe I need to include collection at top level with document_id. Let me try:\n\nget_document_chunks with:\n- identifier: ICICIBANK\n- document_id: VFFMRK\n- collection: pdf_content\n- page_start: 9\n- page_end: 9\n\nWait, I tried that first and it failed. Let me try with different variations. Maybe the issue is the combination of parameters. Perhaps document_id must be used within requests only, or maybe there's a required field I'm missing.\n\nActually, looking more carefully - maybe the problem is that both `requests` AND top-level params can't be mixed, but also maybe standalone requires something else. Let me try just requests without id field:\n\nrequests: [{\"document_id\": \"VFFMRK\", \"page_start\": 9, \"page_end\": 9}]\n\nI tried that with collection and id. Let me try minimal requests.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "The document inventory confirms the FY2026 Q2 investor presentation exists. The document_id from the search result was \"VFFMRK\" (from URL https://docs.bull-ai.in/d/VFFMRK). The get_document_chunks call failed with \"arguments do not match the public tool contract\". \n\nLet me look at the schema again:\n- category: string\n- collection: enum [\"pdf_content\", \"annual_reports\"]\n- document_id: pattern ^[A-Za-z0-9_-]+$\n- fiscal_year: integer\n- identifier: string\n- limit: integer 1-40\n- page_end: integer\n- page_start: integer\n- quarter: integer\n- requests: array\n\nHmm, maybe the issue is that when using requests, other fields conflict. Or maybe I need to include collection at top level with document_id. Let me try:\n\nget_document_chunks with:\n- identifier: ICICIBANK\n- document_id: VFFMRK\n- collection: pdf_content\n- page_start: 9\n- page_end: 9\n\nWait, I tried that first and it failed. Let me try with different variations. Maybe the issue is the combination of parameters. Perhaps document_id must be used within requests only, or maybe there's a required field I'm missing.\n\nActually, looking more carefully - maybe the problem is that both `requests` AND top-level params can't be mixed, but also maybe standalone requires something else. Let me try just requests without id field:\n\nrequests: [{\"document_id\": \"VFFMRK\", \"page_start\": 9, \"page_end\": 9}]\n\nI tried that with collection and id. Let me try minimal requests."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "003eed45-717a-4d4c-bb97-ddf000f4cf29",
+      "content": "The arguments do not match the public tool contract.\n"
+    },
+    {
+      "content": "The direct chunk retrieval keeps failing on contract validation — possibly a different internal document ID format is needed. Let me instead run more targeted document searches to surface the exact PAT rows with full excerpts.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"limit\":8,\"query\":\"\\\"Profit after tax\\\" Q2-2025 H1-2025 standalone\"}",
+            "name": "search_company_documents"
+          },
+          "id": "8743002f-8dd1-4ae3-b7b6-16b935fe96c2",
+          "type": "function"
+        },
+        {
+          "index": 1,
+          "function": {
+            "arguments": "{\"identifier\":\"ICICIBANK\",\"limit\":8,\"query\":\"profit after tax grew Q2-2026 ₹123.59 billion September 30, 2025\"}",
+            "name": "search_company_documents"
+          },
+          "id": "3c6c89a1-6a89-41bb-ad76-13b639309491",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "Still failing. Maybe the document_id \"VFFMRK\" is not the actual document ID used by get_document_chunks. The URL slug might differ from the internal document_id. Let me search for the specific PAT row in the Q2-2026 presentation to get more of the excerpt, particularly the Profit after tax line. The earlier excerpt was cut off at \"Tax | 153.89 | 37.44 | 73.78 | 41.63 | 40.25 | 81.88 | 7.5%...\"\n\nLet me do a more targeted search: \"Profit after tax Q2-2025 H1-2025\" to find the exact PAT figures for Q2-2025.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "Still failing. Maybe the document_id \"VFFMRK\" is not the actual document ID used by get_document_chunks. The URL slug might differ from the internal document_id. Let me search for the specific PAT row in the Q2-2026 presentation to get more of the excerpt, particularly the Profit after tax line. The earlier excerpt was cut off at \"Tax | 153.89 | 37.44 | 73.78 | 41.63 | 40.25 | 81.88 | 7.5%...\"\n\nLet me do a more targeted search: \"Profit after tax Q2-2025 H1-2025\" to find the exact PAT figures for Q2-2025.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "Still failing. Maybe the document_id \"VFFMRK\" is not the actual document ID used by get_document_chunks. The URL slug might differ from the internal document_id. Let me search for the specific PAT row in the Q2-2026 presentation to get more of the excerpt, particularly the Profit after tax line. The earlier excerpt was cut off at \"Tax | 153.89 | 37.44 | 73.78 | 41.63 | 40.25 | 81.88 | 7.5%...\"\n\nLet me do a more targeted search: \"Profit after tax Q2-2025 H1-2025\" to find the exact PAT figures for Q2-2025."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "8743002f-8dd1-4ae3-b7b6-16b935fe96c2",
+      "content": "Document search results for \"Profit after tax\" Q2-2025 H1-2025 standalone\n\nCitation rule: link only the Source label below (format: `[<citation>](<document_url>)`). Do not make the excerpt, quotation, or claim text the link label. Present evidence as bullets under the source.\n\nPeriod guidance: Indian fiscal years run Apr-Mar. FY2026 means Apr 1 2025-Mar 31 2026. Quarter table: Q1 Apr-Jun, Q2 Jul-Sep, Q3 Oct-Dec, Q4 Jan-Mar. Before calling search_company_documents, call list_document_availability to inspect the company's document inventory by type, fiscal_year, and quarter. Use the latest available period documents whenever possible. For 'latest' or 'most recent' concall/transcript/document requests, do not over-constrain with fiscal_year or quarter unless the user explicitly named that period; prefer a focused query and use the returned citation/fiscal fields. If a filtered search returns no results, retry once without fiscal_year/quarter filters. Today is 2026-08-21 in India; the current Indian fiscal period is FY2027 Q2. Annual reports can lag the current fiscal year, so check inventory before forcing a current FY annual-report filter.\n\n1. Source: [Investor Presentation, FY2027, Q1, Page 11](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.8576306\n- Excerpt: # Standalone segment-wise PBT | Profit before tax (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | |-------------------------------|----------|---------|---------|---------|----------| | Retail | 216.21 | 64.93 | 52.63 | 69.27 | 232.44 | | Wholesale | 215.64 | 55.51 | 63.05 | 70.37 | 244.89 | | Treasury | 187.61 | 44.66 | 30.86 | 37.42 | 172.30 | | Others | 6.70 | 2.63 | 1.46 | 3.97 | 12.56 | | Total | 626.16 | 167.73 | 148.00 | 181.03 | 662.19 |\n\n2. Source: [Investor Presentation, FY2027, Q1, Page 11](https://docs.bull-ai.in/d/7lfNff)\n- Score: 0.8503816\n- Excerpt: # Standalone segment-wise PBT | Profit before tax (¥ billion) | FY2026 | Q1-2026 | Q4-2026 | Q1-2027 | |------------------------------|---------|---------|---------|---------| | Retail | 232.44 | 47.35 | 69.27 | 62.39 | | Wholesale | 244.89 | 53.87 | 70.37 | 74.79 | | Treasury | 172.30 | 62.61 | 37.42 | 48.22 | | Others | 12.56 | 5.48 | 3.97 | 5.86 | | Total | 662.19 | 169.31 | 181.03 | 191.26 |\n\n3. Source: [Investor Presentation, FY2027, Q1, Page 43](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.83502823\n- Excerpt: # Consolidated profit & loss statement (2/2) | (¥ billion) | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 growth | FY-o-FY growth | |-------------|--------|---------|---------|---------|--------|---------------|---------------| | Operating profit | 777.59 | 200.53 | 204.00 | 210.05 | 826.96 | 4.7% | 6.3% | | Provisions | 49.06 | 9.41 | 26.46 | 2.61 | 56.39 | (72.3%) | 14.9% | | Profit before tax | 728.53 | 191.12 | 177.54 | 207.44 | 770.57 | 8.5% | 5.8% | | Tax | 184.35 | 47.89 | 43.43 | 51.32 | 193.83 | 7.2% | 5.1% | | Share in profit of associates | 1.51 | 0.30 | 0.70 | 0.69 | 2.63 | - | 74.2% | | Minority interest | 35.40 | 8.51 | 9.43 | 9.26 | 37.29 | 8.8% | 5.3% | | Profit a...\n\n4. Source: [Investor Presentation, FY2027, Q1, Page 9](https://docs.bull-ai.in/d/2dUxfw)\n- Score: 0.8334323\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q4-2025 | Q3-2026 | Q4-2026 | FY2026 | Q4-o-Q4 (%) | FY-o-FY (%) | |--------------|--------|---------|---------|---------|--------|-------------|-------------| | Core operating profit | 653.96 | 174.25 | 175.13 | 183.05 | 704.01 | 5.1% | 7.7% | | Provisions | 46.83 | 8.91 | 25.56¹ | 0.96 | 53.80¹ | (89.2)% | 14.9% | | Profit before tax excluding treasury | 607.13 | 165.34 | 149.57 | 182.09 | 650.21 | 10.1% | 7.1% | | Treasury income | 19.03 | 2.39 | (1.57) | (1.06) | 11.98 | - | (37.0)% | | Profit before tax | 626.16 | 167.73 | 148.00 | 181.03 | 662.19 | 7.9% | 5.8% | | Tax | 153.89 | 41.43 | 34.82 | 44.01 | 160.72 | 6.2% | 4.4% | | Pro...\n\n5. Source: [Investor Presentation, FY2026, Q4, Page 12](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.8559766\n- Excerpt: # Standalone segment-wise PBT | Profit before tax (₹ billion) | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | |-------------------------------|---------|---------|---------|---------|---------|---------| | Retail | 216.21 | 53.32 | 151.28 | 63.18 | 52.63 | 163.18 | | Wholesale | 215.64 | 59.03 | 160.13 | 57.60 | 63.05 | 174.52 | | Treasury | 187.61 | 42.18 | 142.95 | 41.42 | 30.86 | 134.87 | | Others | 6.70 | 2.07 | 4.07 | 1.64 | 1.46 | 8.59 | | Unallocated1 | - | - | - | - | - | - | | **Total** | **626.16** | **156.60** | **458.43** | **163.84** | **148.00** | **481.16** | 1. Represents contingency provision\n\n6. Source: [Investor Presentation, FY2026, Q4, Page 44](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.841123\n- Excerpt: # Consolidated profit & loss statement (2/2) | (₹ billion) | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 growth | |---------------------------|---------|---------|---------|---------|---------|---------|----------------| | Operating profit | 777.59 | 197.51 | 577.07 | 199.74 | 204.00 | 616.91 | 3.3% | | Provisions | 49.06 | 12.68 | 39.65 | 9.10 | 26.46 | 53.78 | - | | Profit before tax | 728.53 | 184.83 | 537.42 | 190.64 | 177.54 | 563.13 | (3.9%) | | Tax | 184.35 | 46.54 | 136.46 | 48.07 | 43.43 | 142.51 | (6.7%) | | Share in profit of associates | 1.51 | 0.18 | 1.20 | 0.61 | 0.70 | 1.94 | - | | Minority interest | 35.40 | 9.64 | 26.89 | 9.61 | 9.43 | 28.03 | (2.2%)...\n\n7. Source: [Investor Presentation, FY2026, Q4, Page 10](https://docs.bull-ai.in/d/V9cuTH)\n- Score: 0.838071\n- Excerpt: # Profit & loss statement | ₹ in billion | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | Q3-o-Q3 (%) | |--------------------------------------|---------|---------|---------|---------|---------|---------|--------------| | **Core operating profit** | 653.96 | 165.16 | 479.71 | 170.78 | 175.13 | 520.96 | 6.0% | | Provisions | 46.83 | 12.27 | 37.92 | 9.14 | 25.56¹ | 52.84¹ | - | | **Profit before tax excluding treasury** | 607.13 | 152.89 | 441.79 | 161.64 | 149.57 | 468.12 | (2.2)% | | Treasury income | 19.03 | 3.71 | 16.64 | 2.20 | (1.57) | 13.04 | - | | **Profit before tax** | 626.16 | 156.60 | 458.43 | 163.84 | 148.00 | 481.16 | (5.5)% | | Tax | 153.89 | 38.68 | 112.46 | 40....\n\n8. Source: [Investor Presentation, FY2026, Q3, Page 12](https://docs.bull-ai.in/d/JwmHcp)\n- Score: 0.861767\n- Excerpt: # Standalone segment-wise PBT | Profit before tax (₹ billion) | FY2025 | Q3-2025 | 9M-2025 | Q2-2026 | Q3-2026 | 9M-2026 | |-------------------------------|--------|---------|---------|---------|---------|---------| | Retail | 216.21 | 53.32 | 151.28 | 63.18 | 52.63 | 163.18 | | Wholesale | 215.64 | 59.03 | 160.13 | 57.60 | 63.05 | 174.52 | | Treasury | 187.61 | 42.18 | 142.95 | 41.42 | 30.86 | 134.87 | | Others | 6.70 | 2.07 | 4.07 | 1.64 | 1.46 | 8.59 | | Unallocated | - | - | - | - | - | - | | **Total** | **626.16** | **156.60** | **458.43** | **163.84** | **148.00** | **481.16** | 1. Represents contingency provision\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "3c6c89a1-6a89-41bb-ad76-13b639309491",
+      "content": "Document search results for profit after tax grew Q2-2026 ₹123.59 billion September 30, 2025\n\nCitation rule: link only the Source label below (format: `[<citation>](<document_url>)`). Do not make the excerpt, quotation, or claim text the link label. Present evidence as bullets under the source.\n\nPeriod guidance: Indian fiscal years run Apr-Mar. FY2026 means Apr 1 2025-Mar 31 2026. Quarter table: Q1 Apr-Jun, Q2 Jul-Sep, Q3 Oct-Dec, Q4 Jan-Mar. Before calling search_company_documents, call list_document_availability to inspect the company's document inventory by type, fiscal_year, and quarter. Use the latest available period documents whenever possible. For 'latest' or 'most recent' concall/transcript/document requests, do not over-constrain with fiscal_year or quarter unless the user explicitly named that period; prefer a focused query and use the returned citation/fiscal fields. If a filtered search returns no results, retry once without fiscal_year/quarter filters. Today is 2026-08-21 in India; the current Indian fiscal period is FY2027 Q2. Annual reports can lag the current fiscal year, so check inventory before forcing a current FY annual-report filter.\n\n1. Source: [Earnings Call Intimation/Outcome, FY2025, Q2, Page 9](https://docs.bull-ai.in/d/492M9y)\n- Score: 0.9101054\n- Excerpt: The profit before tax excluding treasury grew by 7.9% year-on-year to 148.10 billion Rupees in Q2 of this year. Treasury gains were 6.80 billion Rupees in Q2 as compared to a treasury loss of 0.85 billion Rupees in Q2 of the previous year, primarily reflecting realised and mark-to-market gains in equities and fixed income securities. The tax expense was 37.44 billion Rupees in this quarter compared to 33.85 billion Rupees in the corresponding quarter last year. The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter. ### Growth in digital offerings We continue to enhance the use of technology in our operations to provide simplified solutions to customers. Abo...\n\n2. Source: [Financial Results, FY2023, Q2, Page 16](https://docs.bull-ai.in/d/8veGg1)\n- Score: 0.91979456\n- Excerpt: On a standalone basis, the profit after tax grew by 50% year-on-year to ₹ 6,905 crore (US$ 874 million) in Q1-2023 from ₹ 4,616 crore (US$ 585million) in Q1-2022\n\n3. Source: [Financial Results, FY2023, Q2, Page 19](https://docs.bull-ai.in/d/8veGg1)\n- Score: 0.9074488\n- Excerpt: The consolidated profit after tax increased by 55% year-on-year to 7,385crore (US$ 935 million) in Q1-2023 from 4,763 crore (US$ 603 million) in Q1-2022.\n\n4. Source: [Financial Results, FY2022, Q4, Page 18](https://docs.bull-ai.in/d/M8dLKI)\n- Score: 0.9295803\n- Excerpt: On a standalone basis, the profit after tax grew by 25% year-on-year to ₹ 6,194 crore (US$ 833 million) in Q3-2022 from € 4,940 crore (US$ 665million) in Q3-2021\n\n5. Source: [Financial Results, FY2022, Q4, Page 21](https://docs.bull-ai.in/d/M8dLKI)\n- Score: 0.9182934\n- Excerpt: The consolidated profit after tax increased by 19% year-on-year to 6,536crore (US$ 879 million) in Q3-2022 from 5,498 crore (US$ 740 million) in Q3-2021 (Q2-2022: 6,092 crore (US$ 820 million)).\n\n6. Source: [Financial Results, FY2022, Q3, Page 17](https://docs.bull-ai.in/d/RIFPdF)\n- Score: 0.934921\n- Excerpt: Profit after tax grew by 30% year-on-year to 5,511 crore (US$ 742 million) in Q2-2022\n\n7. Source: [Financial Results, FY2022, Q3, Page 18](https://docs.bull-ai.in/d/RIFPdF)\n- Score: 0.9272946\n- Excerpt: The profit before tax grew by 37% year-on-year to ₹ 7,201 crore (US$ 970 million) in Q2-2022 from 5,266 crore (US$ 709 million) in Q2-2021\n\n8. Source: [Financial Results, FY2022, Q3, Page 22](https://docs.bull-ai.in/d/RIFPdF)\n- Score: 0.9208214\n- Excerpt: The consolidated profit after tax was 6,092 crore (US$ 821 million) in Q22022 compared to 4,763 crore (US$ 642 million) in Q1-2022 and 4,882crore (US$ 657 million) in Q2-2021.\n\nSource and verification: Document-backed results are extracted from company-filed documents. When a citation includes document_id, call get_document_chunks with that document_id and the cited page range to inspect the source.\n"
+    },
+    {
+      "content": "I now have decisive primary-source evidence. Let me make one more attempt to pull the verbatim page from the Q2-FY2025 earnings call document for completeness.",
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\"collection\":\"pdf_content\",\"document_id\":\"492M9y\",\"fiscal_year\":2025,\"identifier\":\"ICICIBANK\",\"limit\":5,\"quarter\":2}",
+            "name": "get_document_chunks"
+          },
+          "id": "b55c8d9a-a476-4847-a629-b374858e1476",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "reasoning_content": "I now have decisive evidence. The first result in the second search is from the \"Earnings Call Intimation/Outcome, FY2025, Q2, Page 9\" (document 492M9y) — this is ICICI Bank's own Q2-FY2025 earnings call document, which states verbatim:\n\n\"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\"\n\nThis is the Q2-2025 (quarter ended September 30, 2024) earnings call, and it explicitly states PAT of ₹117.46 bn, growing 14.5% y-o-y. This directly confirms the report's figure of ₹117.46 bn for Q2-2025.\n\nAdditional corroborating evidence:\n1. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L statement with Q2-2025 column showing PBT of 154.90 and Tax of 37.44 → PAT = 154.90 - 37.44 = 117.46. The excerpt was cut off but the arithmetic confirms: 154.90 - 37.44 = 117.46.\n2. FY2026 Q1 presentation (wNZkqZ, page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30.\n3. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT = 472.27 bn; FY2026 PAT = 501.47 bn.\n\nThe user's claim of ₹500 bn for Q2-2025 PAT is clearly wrong. The likely source of confusion: FY2026 full-year PAT was ₹501.47 bn (~₹500 bn). Also, a quarterly PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn, which is internally implausible.\n\nLet me also verify the arithmetic consistency:\n- H1-2025 PAT = 228.05. Q1-2025 PAT = 110.59. So Q2-2025 = 228.05 - 110.59 = 117.46. ✓ This reconciles perfectly.\n- FY2025 PAT = 472.27. 9M-2025 = 379.71 (from Q3-2025 presentation: 9M-2025 PBT 458.43... actually let me check: Q1 110.59 + Q2 117.46 + Q3 = 9M. From FY2026 Q3 presentation, 9M-2025 PBT = 458.43, Q3-2025 PBT = 156.60, so H1-2025 PBT = 301.83 ✓ matches report. Tax 9M-2025 = 112.46, Q3 = 38.68, H1 = 73.78 ✓. So 9M PAT = 458.43 - 112.46 = 345.97; H1 PAT = 301.83 - 73.78 = 228.05 ✓. Q4-2025 PAT = 126.30 (from Q1-2026 presentation). FY2025 = 345.97 + 126.30 = 472.27 ✓. Everything reconciles.\n\nI have enough evidence. Let me try one more time to get the document chunks from the earnings call document 492M9y page 9 to have the verbatim quote verified, though the search excerpt already gives it. Actually, the search result already provides the verbatim excerpt with citation. The get_document_chunks tool has been failing on contract validation, so I'll rely on the search excerpts which are document-backed with citations.\n\nActually, let me try get_document_chunks one more time with a different format - maybe with fiscal_year and quarter instead of pages? No wait — the schema says page_start/page_end are valid. The error \"The arguments do not match the public tool contract\" is odd. Maybe the document_id needs to be longer than what I passed? The pattern is ^[A-Za-z0-9_-]+$ with maxLength 128. \"VFFMRK\" is 6 chars, valid. Hmm.\n\nMaybe the issue is that identifier and document_id combination requires the identifier to be the full company name or something. Or maybe requests items require \"id\" field? I tried with id. Let me try one more variation: top-level with collection and fiscal_year/quarter instead of pages.\n\nActually, I have sufficient evidence from the document-backed search results. The verification notice says \"Document-backed results are extracted from company-filed documents\" and the citations include document IDs and URLs. The key evidence:\n\n1. ICICI Bank's own Q2-FY2025 earnings call document (492M9y, page 9): \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is the definitive primary source for Q2-2025 PAT.\n\n2. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L table with Q2-2025 column: PBT 154.90, Tax 37.44 → PAT 117.46 (arithmetic).\n\n3. FY2026 Q1 Investor Presentation (wNZkqZ, page 9): FY2025 PAT 472.27, Q1-2025 PAT 110.59, Q4-2025 PAT 126.30.\n\n4. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT 472.27, FY2026 PAT 501.47.\n\nLet me try one final get_document_chunks attempt with a slightly different structure to see if I can pull the verbatim page. If it fails again, I'll finalize with what I have.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "I now have decisive evidence. The first result in the second search is from the \"Earnings Call Intimation/Outcome, FY2025, Q2, Page 9\" (document 492M9y) — this is ICICI Bank's own Q2-FY2025 earnings call document, which states verbatim:\n\n\"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\"\n\nThis is the Q2-2025 (quarter ended September 30, 2024) earnings call, and it explicitly states PAT of ₹117.46 bn, growing 14.5% y-o-y. This directly confirms the report's figure of ₹117.46 bn for Q2-2025.\n\nAdditional corroborating evidence:\n1. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L statement with Q2-2025 column showing PBT of 154.90 and Tax of 37.44 → PAT = 154.90 - 37.44 = 117.46. The excerpt was cut off but the arithmetic confirms: 154.90 - 37.44 = 117.46.\n2. FY2026 Q1 presentation (wNZkqZ, page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30.\n3. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT = 472.27 bn; FY2026 PAT = 501.47 bn.\n\nThe user's claim of ₹500 bn for Q2-2025 PAT is clearly wrong. The likely source of confusion: FY2026 full-year PAT was ₹501.47 bn (~₹500 bn). Also, a quarterly PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn, which is internally implausible.\n\nLet me also verify the arithmetic consistency:\n- H1-2025 PAT = 228.05. Q1-2025 PAT = 110.59. So Q2-2025 = 228.05 - 110.59 = 117.46. ✓ This reconciles perfectly.\n- FY2025 PAT = 472.27. 9M-2025 = 379.71 (from Q3-2025 presentation: 9M-2025 PBT 458.43... actually let me check: Q1 110.59 + Q2 117.46 + Q3 = 9M. From FY2026 Q3 presentation, 9M-2025 PBT = 458.43, Q3-2025 PBT = 156.60, so H1-2025 PBT = 301.83 ✓ matches report. Tax 9M-2025 = 112.46, Q3 = 38.68, H1 = 73.78 ✓. So 9M PAT = 458.43 - 112.46 = 345.97; H1 PAT = 301.83 - 73.78 = 228.05 ✓. Q4-2025 PAT = 126.30 (from Q1-2026 presentation). FY2025 = 345.97 + 126.30 = 472.27 ✓. Everything reconciles.\n\nI have enough evidence. Let me try one more time to get the document chunks from the earnings call document 492M9y page 9 to have the verbatim quote verified, though the search excerpt already gives it. Actually, the search result already provides the verbatim excerpt with citation. The get_document_chunks tool has been failing on contract validation, so I'll rely on the search excerpts which are document-backed with citations.\n\nActually, let me try get_document_chunks one more time with a different format - maybe with fiscal_year and quarter instead of pages? No wait — the schema says page_start/page_end are valid. The error \"The arguments do not match the public tool contract\" is odd. Maybe the document_id needs to be longer than what I passed? The pattern is ^[A-Za-z0-9_-]+$ with maxLength 128. \"VFFMRK\" is 6 chars, valid. Hmm.\n\nMaybe the issue is that identifier and document_id combination requires the identifier to be the full company name or something. Or maybe requests items require \"id\" field? I tried with id. Let me try one more variation: top-level with collection and fiscal_year/quarter instead of pages.\n\nActually, I have sufficient evidence from the document-backed search results. The verification notice says \"Document-backed results are extracted from company-filed documents\" and the citations include document IDs and URLs. The key evidence:\n\n1. ICICI Bank's own Q2-FY2025 earnings call document (492M9y, page 9): \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is the definitive primary source for Q2-2025 PAT.\n\n2. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L table with Q2-2025 column: PBT 154.90, Tax 37.44 → PAT 117.46 (arithmetic).\n\n3. FY2026 Q1 Investor Presentation (wNZkqZ, page 9): FY2025 PAT 472.27, Q1-2025 PAT 110.59, Q4-2025 PAT 126.30.\n\n4. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT 472.27, FY2026 PAT 501.47.\n\nLet me try one final get_document_chunks attempt with a slightly different structure to see if I can pull the verbatim page. If it fails again, I'll finalize with what I have.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "I now have decisive evidence. The first result in the second search is from the \"Earnings Call Intimation/Outcome, FY2025, Q2, Page 9\" (document 492M9y) — this is ICICI Bank's own Q2-FY2025 earnings call document, which states verbatim:\n\n\"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\"\n\nThis is the Q2-2025 (quarter ended September 30, 2024) earnings call, and it explicitly states PAT of ₹117.46 bn, growing 14.5% y-o-y. This directly confirms the report's figure of ₹117.46 bn for Q2-2025.\n\nAdditional corroborating evidence:\n1. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L statement with Q2-2025 column showing PBT of 154.90 and Tax of 37.44 → PAT = 154.90 - 37.44 = 117.46. The excerpt was cut off but the arithmetic confirms: 154.90 - 37.44 = 117.46.\n2. FY2026 Q1 presentation (wNZkqZ, page 9): FY2025 PAT = 472.27, Q1-2025 PAT = 110.59, Q4-2025 PAT = 126.30.\n3. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT = 472.27 bn; FY2026 PAT = 501.47 bn.\n\nThe user's claim of ₹500 bn for Q2-2025 PAT is clearly wrong. The likely source of confusion: FY2026 full-year PAT was ₹501.47 bn (~₹500 bn). Also, a quarterly PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn, which is internally implausible.\n\nLet me also verify the arithmetic consistency:\n- H1-2025 PAT = 228.05. Q1-2025 PAT = 110.59. So Q2-2025 = 228.05 - 110.59 = 117.46. ✓ This reconciles perfectly.\n- FY2025 PAT = 472.27. 9M-2025 = 379.71 (from Q3-2025 presentation: 9M-2025 PBT 458.43... actually let me check: Q1 110.59 + Q2 117.46 + Q3 = 9M. From FY2026 Q3 presentation, 9M-2025 PBT = 458.43, Q3-2025 PBT = 156.60, so H1-2025 PBT = 301.83 ✓ matches report. Tax 9M-2025 = 112.46, Q3 = 38.68, H1 = 73.78 ✓. So 9M PAT = 458.43 - 112.46 = 345.97; H1 PAT = 301.83 - 73.78 = 228.05 ✓. Q4-2025 PAT = 126.30 (from Q1-2026 presentation). FY2025 = 345.97 + 126.30 = 472.27 ✓. Everything reconciles.\n\nI have enough evidence. Let me try one more time to get the document chunks from the earnings call document 492M9y page 9 to have the verbatim quote verified, though the search excerpt already gives it. Actually, the search result already provides the verbatim excerpt with citation. The get_document_chunks tool has been failing on contract validation, so I'll rely on the search excerpts which are document-backed with citations.\n\nActually, let me try get_document_chunks one more time with a different format - maybe with fiscal_year and quarter instead of pages? No wait — the schema says page_start/page_end are valid. The error \"The arguments do not match the public tool contract\" is odd. Maybe the document_id needs to be longer than what I passed? The pattern is ^[A-Za-z0-9_-]+$ with maxLength 128. \"VFFMRK\" is 6 chars, valid. Hmm.\n\nMaybe the issue is that identifier and document_id combination requires the identifier to be the full company name or something. Or maybe requests items require \"id\" field? I tried with id. Let me try one more variation: top-level with collection and fiscal_year/quarter instead of pages.\n\nActually, I have sufficient evidence from the document-backed search results. The verification notice says \"Document-backed results are extracted from company-filed documents\" and the citations include document IDs and URLs. The key evidence:\n\n1. ICICI Bank's own Q2-FY2025 earnings call document (492M9y, page 9): \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is the definitive primary source for Q2-2025 PAT.\n\n2. FY2026 Q2 Investor Presentation (VFFMRK, page 9): P&L table with Q2-2025 column: PBT 154.90, Tax 37.44 → PAT 117.46 (arithmetic).\n\n3. FY2026 Q1 Investor Presentation (wNZkqZ, page 9): FY2025 PAT 472.27, Q1-2025 PAT 110.59, Q4-2025 PAT 126.30.\n\n4. General Updates FY2027 Q2 (0rNWi2, page 5): FY2025 PAT 472.27, FY2026 PAT 501.47.\n\nLet me try one final get_document_chunks attempt with a slightly different structure to see if I can pull the verbatim page. If it fails again, I'll finalize with what I have."
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "b55c8d9a-a476-4847-a629-b374858e1476",
+      "content": "The arguments do not match the public tool contract.\n"
+    },
+    {
+      "content": "I have gathered sufficient document-backed evidence to resolve the conflict definitively. Here is my verification summary:\n\n---\n\n# Verification Findings: ICICI Bank Q2-2025 Profit After Tax\n\n## Verdict: ✅ **The report is correct. The user's claim of ₹500 bn is wrong.**\n\n**Report figure: Q2-2025 PAT = ₹117.46 bn** — confirmed by ICICI Bank's own filed documents.\n**User claim: Q2-2025 PAT = ₹500 bn** — rejected; factually incorrect and internally implausible.\n\n## Grounded Evidence\n\n**1. ICICI Bank's own Q2-FY2025 earnings call document (primary source)**\n- Source: [Earnings Call Intimation/Outcome, FY2025, Q2, Page 9](https://docs.bull-ai.in/d/492M9y)\n- Verbatim: *\"The profit after tax grew by 14.5% year-on-year to **117.46 billion Rupees** in this quarter.\"* (Q2-2025 = quarter ended September 30, 2024)\n- The same document confirms the tax expense of ₹37.44 bn and PBT excluding treasury of ₹148.10 bn — matching the report's P&L table line-for-line.\n\n**2. Investor Presentation, FY2026 Q2 (doc VFFMRK, page 9)** — the standalone P&L table with the Q2-2025 comparative column shows PBT of ₹154.90 bn and tax of ₹37.44 bn → PAT = 154.90 − 37.44 = **₹117.46 bn**, exactly matching the report.\n\n**3. Investor Presentation, FY2026 Q1 (doc wNZkqZ, page 9)** — confirms FY2025 full-year PAT = **₹472.27 bn**, Q1-2025 PAT = ₹110.59 bn, Q4-2025 PAT = ₹126.30 bn.\n\n**4. General Updates, FY2027 Q2 (doc 0rNWi2, page 5)** — confirms FY2025 PAT = ₹472.27 bn and, notably, **FY2026 full-year PAT = ₹501.47 bn**.\n\n## Resolution of Each Detected Conflict\n\n| Conflict | Finding |\n|---|---|\n| **Q2-2025 PAT: ₹117.46 bn vs ₹500 bn** | **Report correct.** ICICI Bank's own earnings call states ₹117.46 bn (up 14.5% y-o-y), corroborated by the investor presentation P&L (₹154.90 bn PBT − ₹37.44 bn tax). |\n| **₹500 bn exceeds FY2025 full-year PAT (₹472.27 bn)** | **Confirmed implausible.** A single quarter cannot exceed the full year; FY2025 PAT is independently verified at ₹472.27 bn across multiple company documents. |\n| **Downstream reconciliation break** | **Confirmed.** Verified arithmetic: H1-2025 PAT (₹228.05 bn) − Q1-2025 PAT (₹110.59 bn) = **₹117.46 bn** ✓. Changing Q2-2025 to ₹500 bn would imply H1-2025 ≥ ₹610.59 bn and FY2025 far above ₹472.27 bn, breaking reconciliation with company-filed figures. |\n\n## Likely Source of the User's Error\n\nThe \"₹500 bn\" figure almost certainly stems from a **period mismatch**: ICICI Bank's **FY2026 full-year** PAT was **₹501.47 bn** (≈₹500 bn), per the company's own FY2026 performance review. That is an annual figure for the year ended March 31, 2026 — not the Q2-2025 quarterly figure.\n\n## Conclusion\n\nNo correction to the report is required. The report's Q2-2025 PAT of **₹117.46 bn** is accurate and fully reconciles with Q1-2025 (₹110.59 bn), H1-2025 (₹228.05 bn), and FY2025 (₹472.27 bn) figures from ICICI Bank's filed documents. The user's claim of ₹500 bn should be rejected as a period-confusion error (FY2026 annual PAT of ₹501.47 bn misattributed to Q2-2025).",
+      "role": "assistant",
+      "tool_calls": null,
+      "function_call": null,
+      "reasoning_content": "The get_document_chunks tool continues to reject the arguments. This appears to be a tool-side contract issue. However, I already have document-backed, cited excerpts from search_company_documents that are sufficient to resolve the conflict definitively:\n\n1. **Primary source (ICICI Bank's own Q2-FY2025 earnings call document, doc 492M9y, page 9):** \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is ICICI Bank's own disclosure for Q2-2025 (quarter ended September 30, 2024).\n\n2. **FY2026 Q2 Investor Presentation (doc VFFMRK, page 9):** P&L table with Q2-2025 column: PBT ₹154.90 bn, Tax ₹37.44 bn → PAT = 154.90 − 37.44 = ₹117.46 bn. Matches the report exactly.\n\n3. **FY2026 Q1 Investor Presentation (doc wNZkqZ, page 9):** FY2025 PAT = ₹472.27 bn; Q1-2025 PAT = ₹110.59 bn; Q4-2025 PAT = ₹126.30 bn.\n\n4. **General Updates FY2027 Q2 (doc 0rNWi2, page 5):** FY2025 PAT = ₹472.27 bn; FY2026 PAT = ₹501.47 bn — the likely source of the user's \"₹500 bn\" confusion (that's the FULL-YEAR FY2026 figure, not Q2-2025).\n\nArithmetic reconciliation:\n- H1-2025 PAT (₹228.05 bn) − Q1-2025 PAT (₹110.59 bn) = ₹117.46 bn ✓ exactly matches the report's Q2-2025 figure.\n- Q2-2025 PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn — internally impossible.\n- If Q2-2025 were ₹500 bn, H1-2025 would be ≥ ₹610.59 bn, contradicting the reported ₹228.05 bn, and FY2025 would be far above ₹472.27 bn.\n\nConclusion: The report is correct (Q2-2025 PAT = ₹117.46 bn); the user's claim of ₹500 bn is wrong. The ₹500 bn figure most plausibly corresponds to FY2026 full-year PAT (₹501.47 bn), a period mismatch.\n\nNow I'll write the final summary.",
+      "provider_specific_fields": {
+        "reasoning_details": [
+          {
+            "type": "reasoning.text",
+            "text": "The get_document_chunks tool continues to reject the arguments. This appears to be a tool-side contract issue. However, I already have document-backed, cited excerpts from search_company_documents that are sufficient to resolve the conflict definitively:\n\n1. **Primary source (ICICI Bank's own Q2-FY2025 earnings call document, doc 492M9y, page 9):** \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is ICICI Bank's own disclosure for Q2-2025 (quarter ended September 30, 2024).\n\n2. **FY2026 Q2 Investor Presentation (doc VFFMRK, page 9):** P&L table with Q2-2025 column: PBT ₹154.90 bn, Tax ₹37.44 bn → PAT = 154.90 − 37.44 = ₹117.46 bn. Matches the report exactly.\n\n3. **FY2026 Q1 Investor Presentation (doc wNZkqZ, page 9):** FY2025 PAT = ₹472.27 bn; Q1-2025 PAT = ₹110.59 bn; Q4-2025 PAT = ₹126.30 bn.\n\n4. **General Updates FY2027 Q2 (doc 0rNWi2, page 5):** FY2025 PAT = ₹472.27 bn; FY2026 PAT = ₹501.47 bn — the likely source of the user's \"₹500 bn\" confusion (that's the FULL-YEAR FY2026 figure, not Q2-2025).\n\nArithmetic reconciliation:\n- H1-2025 PAT (₹228.05 bn) − Q1-2025 PAT (₹110.59 bn) = ₹117.46 bn ✓ exactly matches the report's Q2-2025 figure.\n- Q2-2025 PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn — internally impossible.\n- If Q2-2025 were ₹500 bn, H1-2025 would be ≥ ₹610.59 bn, contradicting the reported ₹228.05 bn, and FY2025 would be far above ₹472.27 bn.\n\nConclusion: The report is correct (Q2-2025 PAT = ₹117.46 bn); the user's claim of ₹500 bn is wrong. The ₹500 bn figure most plausibly corresponds to FY2026 full-year PAT (₹501.47 bn), a period mismatch.\n\nNow I'll write the final summary.",
+            "format": "unknown",
+            "index": 0
+          }
+        ],
+        "refusal": null,
+        "reasoning": "The get_document_chunks tool continues to reject the arguments. This appears to be a tool-side contract issue. However, I already have document-backed, cited excerpts from search_company_documents that are sufficient to resolve the conflict definitively:\n\n1. **Primary source (ICICI Bank's own Q2-FY2025 earnings call document, doc 492M9y, page 9):** \"The profit after tax grew by 14.5% year-on-year to 117.46 billion Rupees in this quarter.\" — This is ICICI Bank's own disclosure for Q2-2025 (quarter ended September 30, 2024).\n\n2. **FY2026 Q2 Investor Presentation (doc VFFMRK, page 9):** P&L table with Q2-2025 column: PBT ₹154.90 bn, Tax ₹37.44 bn → PAT = 154.90 − 37.44 = ₹117.46 bn. Matches the report exactly.\n\n3. **FY2026 Q1 Investor Presentation (doc wNZkqZ, page 9):** FY2025 PAT = ₹472.27 bn; Q1-2025 PAT = ₹110.59 bn; Q4-2025 PAT = ₹126.30 bn.\n\n4. **General Updates FY2027 Q2 (doc 0rNWi2, page 5):** FY2025 PAT = ₹472.27 bn; FY2026 PAT = ₹501.47 bn — the likely source of the user's \"₹500 bn\" confusion (that's the FULL-YEAR FY2026 figure, not Q2-2025).\n\nArithmetic reconciliation:\n- H1-2025 PAT (₹228.05 bn) − Q1-2025 PAT (₹110.59 bn) = ₹117.46 bn ✓ exactly matches the report's Q2-2025 figure.\n- Q2-2025 PAT of ₹500 bn would exceed the entire FY2025 PAT of ₹472.27 bn — internally impossible.\n- If Q2-2025 were ₹500 bn, H1-2025 would be ≥ ₹610.59 bn, contradicting the reported ₹228.05 bn, and FY2025 would be far above ₹472.27 bn.\n\nConclusion: The report is correct (Q2-2025 PAT = ₹117.46 bn); the user's claim of ₹500 bn is wrong. The ₹500 bn figure most plausibly corresponds to FY2026 full-year PAT (₹501.47 bn), a period mismatch.\n\nNow I'll write the final summary."
+      }
+    }
+  ],
+  "final_result": {
+    "has_conflict": true,
+    "conflicts": [
+      "Profit after tax (PAT) for Q2-2025: report states ₹117.46 bn (P&L table and PAT trend chart), but the update claims ₹500 bn.",
+      "Internal inconsistency in the update: a claimed Q2-2025 PAT of ₹500 bn exceeds the entire FY2025 full-year PAT of ₹472.27 bn, making the figure implausible against the report's own historicals.",
+      "Downstream consistency break: if Q2-2025 PAT were changed to ₹500 bn, H1-2025 PAT (₹228.05 bn) and FY2025 PAT (₹472.27 bn) would no longer reconcile."
+    ],
+    "new_claims": [],
+    "suggested_patch": {
+      "key_highlights": [
+        "Net additions to gross NPAs were ₹13.86 bn in Q2-2026, down from ₹30.34 bn in Q1-2026.",
+        "Provisions decreased to ₹9.14 bn in Q2-2026 from ₹18.15 bn in Q1-2026.",
+        "Net NPA ratio improved to 0.39% at Sep 30, 2025.",
+        "Common Equity Tier 1 ratio was 16.35% at Sep 30, 2025.",
+        "Total capital adequacy ratio stood at 17.00% at Sep 30, 2025."
+      ],
+      "financials": [
+        {
+          "title": "Profit & Loss (₹ billion)",
+          "columns": [
+            "FY2025",
+            "Q2-2025",
+            "H1-2025",
+            "Q1-2026",
+            "Q2-2026",
+            "H1-2026"
+          ],
+          "rows": [
+            {
+              "label": "Net interest income",
+              "cells": [
+                "811.65",
+                "200.48",
+                "396.01",
+                "216.35",
+                "215.29",
+                "431.64"
+              ]
+            },
+            {
+              "label": "Non-interest income",
+              "cells": [
+                "266.03",
+                "64.96",
+                "128.85",
+                "72.64",
+                "73.56",
+                "146.20"
+              ]
+            },
+            {
+              "label": "Core operating profit",
+              "cells": [
+                "653.96",
+                "160.43",
+                "314.55",
+                "175.05",
+                "170.78",
+                "345.83"
+              ]
+            },
+            {
+              "label": "Provisions",
+              "cells": [
+                "46.83",
+                "12.33",
+                "25.65",
+                "18.15",
+                "9.14",
+                "27.29"
+              ]
+            },
+            {
+              "label": "Profit before tax",
+              "cells": [
+                "626.16",
+                "154.90",
+                "301.83",
+                "169.31",
+                "163.84",
+                "333.15"
+              ]
+            },
+            {
+              "label": "Profit after tax",
+              "cells": [
+                "472.27",
+                "117.46",
+                "228.05",
+                "127.68",
+                "123.59",
+                "251.27"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Balance Sheet (₹ billion)",
+          "columns": [
+            "Sep 30, 2024",
+            "Jun 30, 2025",
+            "Sep 30, 2025"
+          ],
+          "rows": [
+            {
+              "label": "Net worth",
+              "cells": [
+                "2,595.40",
+                "3,063.21",
+                "3,114.42"
+              ]
+            },
+            {
+              "label": "Deposits",
+              "cells": [
+                "14,977.61",
+                "16,085.17",
+                "16,128.25"
+              ]
+            },
+            {
+              "label": "Borrowings",
+              "cells": [
+                "1,244.93",
+                "1,170.95",
+                "1,118.18"
+              ]
+            },
+            {
+              "label": "Total liabilities",
+              "cells": [
+                "19,768.58",
+                "21,238.39",
+                "21,362.71"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Key Ratios",
+          "columns": [
+            "FY2025",
+            "Q2-2025",
+            "H1-2025",
+            "Q1-2026",
+            "Q2-2026",
+            "H1-2026"
+          ],
+          "rows": [
+            {
+              "label": "Net interest margin",
+              "cells": [
+                "4.32",
+                "4.27",
+                "4.31",
+                "4.34",
+                "4.30",
+                "4.32"
+              ]
+            },
+            {
+              "label": "Cost of deposits",
+              "cells": [
+                "4.91",
+                "4.88",
+                "4.87",
+                "4.85",
+                "4.64",
+                "4.75"
+              ]
+            },
+            {
+              "label": "Return on average assets",
+              "cells": [
+                "2.40",
+                "2.39",
+                "2.38",
+                "2.44",
+                "2.33",
+                "2.38"
+              ]
+            },
+            {
+              "label": "Standalone return on equity",
+              "cells": [
+                "17.9",
+                "18.1",
+                "18.1",
+                "17.1",
+                "16.0",
+                "16.6"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "mcp_verification": "MCP Agent verified the conflicts:\nI have gathered sufficient document-backed evidence to resolve the conflict definitively. Here is my verification summary:\n\n---\n\n# Verification Findings: ICICI Bank Q2-2025 Profit After Tax\n\n## Verdict: ✅ **The report is correct. The user's claim of ₹500 bn is wrong.**\n\n**Report figure: Q2-2025 PAT = ₹117.46 bn** — confirmed by ICICI Bank's own filed documents.\n**User claim: Q2-2025 PAT = ₹500 bn** — rejected; factually incorrect and internally implausible.\n\n## Grounded Evidence\n\n**1. ICICI Bank's own Q2-FY2025 earnings call document (primary source)**\n- Source: [Earnings Call Intimation/Outcome, FY2025, Q2, Page 9](https://docs.bull-ai.in/d/492M9y)\n- Verbatim: *\"The profit after tax grew by 14.5% year-on-year to **117.46 billion Rupees** in this quarter.\"* (Q2-2025 = quarter ended September 30, 2024)\n- The same document confirms the tax expense of ₹37.44 bn and PBT excluding treasury of ₹148.10 bn — matching the report's P&L table line-for-line.\n\n**2. Investor Presentation, FY2026 Q2 (doc VFFMRK, page 9)** — the standalone P&L table with the Q2-2025 comparative column shows PBT of ₹154.90 bn and tax of ₹37.44 bn → PAT = 154.90 − 37.44 = **₹117.46 bn**, exactly matching the report.\n\n**3. Investor Presentation, FY2026 Q1 (doc wNZkqZ, page 9)** — confirms FY2025 full-year PAT = **₹472.27 bn**, Q1-2025 PAT = ₹110.59 bn, Q4-2025 PAT = ₹126.30 bn.\n\n**4. General Updates, FY2027 Q2 (doc 0rNWi2, page 5)** — confirms FY2025 PAT = ₹472.27 bn and, notably, **FY2026 full-year PAT = ₹501.47 bn**.\n\n## Resolution of Each Detected Conflict\n\n| Conflict | Finding |\n|---|---|\n| **Q2-2025 PAT: ₹117.46 bn vs ₹500 bn** | **Report correct.** ICICI Bank's own earnings call states ₹117.46 bn (up 14.5% y-o-y), corroborated by the investor presentation P&L (₹154.90 bn PBT − ₹37.44 bn tax). |\n| **₹500 bn exceeds FY2025 full-year PAT (₹472.27 bn)** | **Confirmed implausible.** A single quarter cannot exceed the full year; FY2025 PAT is independently verified at ₹472.27 bn across multiple company documents. |\n| **Downstream reconciliation break** | **Confirmed.** Verified arithmetic: H1-2025 PAT (₹228.05 bn) − Q1-2025 PAT (₹110.59 bn) = **₹117.46 bn** ✓. Changing Q2-2025 to ₹500 bn would imply H1-2025 ≥ ₹610.59 bn and FY2025 far above ₹472.27 bn, breaking reconciliation with company-filed figures. |\n\n## Likely Source of the User's Error\n\nThe \"₹500 bn\" figure almost certainly stems from a **period mismatch**: ICICI Bank's **FY2026 full-year** PAT was **₹501.47 bn** (≈₹500 bn), per the company's own FY2026 performance review. That is an annual figure for the year ended March 31, 2026 — not the Q2-2025 quarterly figure.\n\n## Conclusion\n\nNo correction to the report is required. The report's Q2-2025 PAT of **₹117.46 bn** is accurate and fully reconciles with Q1-2025 (₹110.59 bn), H1-2025 (₹228.05 bn), and FY2025 (₹472.27 bn) figures from ICICI Bank's filed documents. The user's claim of ₹500 bn should be rejected as a period-confusion error (FY2026 annual PAT of ₹501.47 bn misattributed to Q2-2025)."
+  }
+}

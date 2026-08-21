@@ -9,10 +9,11 @@ import uuid
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -112,10 +113,15 @@ async def generate_report(
 
         # Step 1: Ingest document
         doc = ingest(filename, file_bytes)
+        
+        report_id = str(uuid.uuid4())
 
         # Step 2: AI extraction
         effective_company = company_name if company_name and company_name != "Other…" else sample_name or ""
-        report_data = extract_report(doc, effective_company, model=model)
+        report_data = extract_report(doc, effective_company, model=model, report_id=report_id)
+        
+        from core.audit import log_report_generation
+        log_report_generation(report_id, report_data.company_name or effective_company, model, report_data.model_dump())
 
         # Step 3: Render charts as base64 images for frontend preview
         charts_b64 = render_all(report_data.charts)
@@ -123,7 +129,6 @@ async def generate_report(
         # Step 4: Render PDF
         pdf_bytes = render_pdf(report_data)
 
-        report_id = str(uuid.uuid4())
         safe_name = (report_data.company_name or effective_company or "research_report").replace(" ", "_")
         pdf_filename = f"{safe_name}_{report_id[:8]}.pdf"
         out_path = RESULT_DIR / pdf_filename
@@ -132,7 +137,8 @@ async def generate_report(
         GENERATED_REPORTS[report_id] = {
             "path": out_path,
             "filename": pdf_filename,
-            "display_name": f"{report_data.company_name or 'Research'}_report.pdf"
+            "display_name": f"{report_data.company_name or 'Research'}_report.pdf",
+            "data": report_data.model_dump()
         }
 
         return {
@@ -156,7 +162,8 @@ def download_report(report_id: str):
             return FileResponse(
                 path=filepath,
                 media_type="application/pdf",
-                filename=info["display_name"]
+                filename=info["display_name"],
+                content_disposition_type="inline"
             )
     
     # Try looking in RESULT_DIR directly
@@ -165,10 +172,51 @@ def download_report(report_id: str):
             return FileResponse(
                 path=pdf_file,
                 media_type="application/pdf",
-                filename=pdf_file.name
+                filename=pdf_file.name,
+                content_disposition_type="inline"
             )
 
     raise HTTPException(status_code=404, detail="Report PDF not found.")
+
+class ChatRequest(BaseModel):
+    message: str
+
+@app.post("/api/chat/{report_id}")
+async def chat_with_report(report_id: str, req: ChatRequest, model: str = DEFAULT_MODEL):
+    if report_id not in GENERATED_REPORTS:
+        raise HTTPException(status_code=404, detail="Report not found in memory.")
+    
+    from core.chat import answer_chat
+    from core.schema import ReportData
+    from core.report import render_pdf
+    from fastapi.responses import StreamingResponse
+    import json
+    
+    report_data = GENERATED_REPORTS[report_id]["data"]
+    
+    async def event_generator():
+        try:
+            async for chunk in answer_chat(req.message, report_data, model):
+                if chunk.get("type") == "done" and chunk.get("updated"):
+                    # The data was surgically updated, we must regenerate the PDF
+                    new_data = chunk.get("updated_data", report_data)
+                    GENERATED_REPORTS[report_id]["data"] = new_data
+                    
+                    try:
+                        report_obj = ReportData(**new_data)
+                        pdf_bytes = render_pdf(report_obj)
+                        out_path = GENERATED_REPORTS[report_id]["path"]
+                        out_path.write_bytes(pdf_bytes)
+                    except Exception as e:
+                        chunk["reply"] += f"\n\n*(Error regenerating PDF: {e})*"
+                
+                # Yield as Server-Sent Event
+                yield f"data: {json.dumps(chunk)}\n\n"
+        except Exception as e:
+            yield f"data: {json.dumps({'type': 'error', 'message': str(e)})}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
 
 # Mount frontend static files if built in production
 FRONTEND_DIST = WORKSPACE_DIR / "frontend" / "dist"

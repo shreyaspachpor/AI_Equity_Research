@@ -25,7 +25,7 @@ def main():
         venv_python = HERE / "venv" / "Scripts" / "python.exe" if sys.platform == "win32" else HERE / "venv" / "bin" / "python"
         if venv_python.exists():
             print(f"🔄 Automatically activating virtual environment...")
-            os.execv(str(venv_python), [str(venv_python)] + sys.argv)
+            sys.exit(subprocess.run([str(venv_python)] + sys.argv, env=env).returncode)
         else:
             print("⚠️ Virtual environment not found. Please create one with 'python -m venv venv'.")
 

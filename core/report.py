@@ -1,11 +1,3 @@
-"""
-Report renderer — ReportData -> HTML (Jinja2) -> PDF (WeasyPrint).
-=================================================================
-
-The template/CSS live in ../templates and recreate the Geojit sample layout.
-This module wires the data + rendered charts into the template and produces
-the final PDF bytes for one-click download.
-"""
 
 from __future__ import annotations
 
